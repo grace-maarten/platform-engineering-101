@@ -69,7 +69,7 @@ you've chosen (e.g., demo environment or developer sandbox):
     **or** if you **require more fine-grained control**, the Helm-based installation is 
     the better option.
 
-## Step 2a: Install Red Hat Developer Hub through Helm Charts
+### Step 2a: Install Red Hat Developer Hub through Helm Charts
 _You can't choose the namespace within the sandbox: It will be something like
 'username + -dev'. Know that you will have to pay attention to the configurations 
 later on in this workshop: you'll need to check that the namespace is correct as
@@ -86,7 +86,7 @@ didn't go along with 'developer-hub'._
 * In case you want to troubleshoot the installation, you can follow the instructions in
 [this training exercise](https://developers.redhat.com/learn/deploying-and-troubleshooting-red-hat-developer-hub-openshift-practical-guide).
 
-## Step 2b: Install Red Hat Developer Hub through the operator
+### Step 2b: Install Red Hat Developer Hub through the operator
 _We will be using 'demo-project' as a project/namespace name. Feel free to change it
 to what you like, but know that you will have to pay attention to the configurations
 later on in this workshop: you'll need to check that the namespace is correct if you
