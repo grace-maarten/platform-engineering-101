@@ -74,7 +74,7 @@ you've chosen (e.g., demo environment or developer sandbox):
     **or** if you **require more fine-grained control**, the Helm-based installation is 
     the better option.
 
-### Step 2a: Install Red Hat Developer Hub through Helm Charts
+## Step 2a: Install Red Hat Developer Hub through Helm Charts
 _You can't choose the namespace within the sandbox: It will be something like
 'username + -dev'. Know that you will have to pay attention to the configurations 
 later on in this workshop: you'll need to check that the namespace is correct as
@@ -112,106 +112,6 @@ to what you like, but know that you will have to pay attention to the configurat
 later on in this workshop: you'll need to check that the name is correct if you
 didn't go along with 'developer-hub'._
 
-_Source manifest files for the tutorials can be found in this repository: 
-[https://github.com/maarten-vandeperre/developer-hub-training-exercises](https://github.com/maarten-vandeperre/developer-hub-training-exercises),
-which can be cloned in your dev spaces environment. Be aware to change the default namespace 'demo-project'
-within these manifest files to your namespace._
-
 In order to do so, you can follow 
 [this training exercise](https://developers.redhat.com/learn/deploying-and-troubleshooting-red-hat-developer-hub-openshift-practical-guide).  
 (Next to installation instructions, this training exercise contains a section with troubleshooting instructions as well).
-
-## Step 3: Integrate with GitHub
-_Source manifest files for the tutorials can be found in this repository:
-[https://github.com/maarten-vandeperre/developer-hub-training-exercises](https://github.com/maarten-vandeperre/developer-hub-training-exercises),
-which can be cloned in your dev spaces environment. Be aware to change the default namespace 'demo-project'
-within these manifest files to your namespace.   
-!! In case you went for the Helm based installation,
-make sure to use the '-helm' manifest files._
-
-Before diving into tasks like setting up software templates, we first need to establish integration with a Git repository. 
-For this workshop, we’ve chosen GitHub. Note that GitHub apps have already been preconfigured for you, 
-so you can skip that part in this
-[training exercise](https://developers.redhat.com/learning/learn:streamline-development-github-integration-and-software-templates-red-hat-developer-hub/resource/learn:streamline-development-github-integration-and-software-templates-red-hat-developer-hub:resource:prerequisites-and-step-step-guide).
-
-In case you would like to continue with your own GitHub application, feel free to obtain the following
-parameters from you GitHub organization and/or GitHub app:  
-_How to obtain these parameters is described in section '1. Configure GitHub'_
-* app ID.
-* client ID.
-* client secret.
-* private key (i.e., .pem file).  
-
-Next to the written tutorial, we've created a [dynamic video tutorial](https://app.arcade.software/share/yAz2okhKSeBNCRrqmQ39),
-which you can follow as well to obtain these parameters. (Whenever the video pauzes, you have to 
-click 'next' or 'arrow right' to continue).
-
-
-Starting from the second part of 
-[the exercise](https://developers.redhat.com/learning/learn:streamline-development-github-integration-and-software-templates-red-hat-developer-hub/resource/learn:streamline-development-github-integration-and-software-templates-red-hat-developer-hub:resource:prerequisites-and-step-step-guide), 
-focus on the following steps:   
-_(you can skip other configuration steps, as tasks like software template creation will be covered later in the workshop)_
-* '**2. Create a basic GitHub integration within Developer Hub** (i.e., repository creation and scanning)'
-* '**3.3 Enable GitHub authentication**'
-
-## Step 4: Applying software templates / golden path templates
-_Source manifest files for the tutorials can be found in this repository:
-[https://github.com/maarten-vandeperre/developer-hub-training-exercises](https://github.com/maarten-vandeperre/developer-hub-training-exercises),
-which can be cloned in your dev spaces environment. Be aware to change the default namespace 'demo-project'
-within these manifest files to your namespace.   
-!! In case you went for the Helm based installation,
-make sure to use the '-helm' manifest files._
-
-For this exercise, we will make use of the following software template:
-* For Operator-based installation: [Open Liberty software template](https://github.com/grace-maarten/platform-engineering-101/blob/main/artefacts/software-templates/liberty-template/template.yaml)
-* For Helm-based installation: [Helm Open Liberty software template](https://github.com/grace-maarten/platform-engineering-101/blob/main/artefacts/software-templates/liberty-template/template-helm.yaml)
-
-**!! In order to be able to initiate a software template, you'll need to make sure that 
-you have a personal access token from GitHub:**
-1. Go to [GitHub profile settings](https://github.com/settings/profile).
-2. Got to Developer settings > Personal access tokens > Tokens (classic).
-3. Click 'Generate new token' > Generate new token (classic).
-4. Add these scopes to the token:
-   * **Reading software components:**
-     * repo 
-   * **Reading organization data:**
-     * read:org
-     * read:user
-     * user:email
-   * **Publishing software templates:**
-     * repo 
-     * workflow (if templates include GitHub workflows)
-5. Store it somewhere: you'll need it later on when initiating a software template (i.e., within the form of the software template initiation).
-
-Instructions on how to add software templates to Developer Hub and how to apply them,
-can be found in this
-[training exercise](https://developers.redhat.com/learning/learn:streamline-development-github-integration-and-software-templates-red-hat-developer-hub/resource/learn:streamline-development-github-integration-and-software-templates-red-hat-developer-hub:resource:prerequisites-and-step-step-guide).
-(Section '3.1 Create a repository via a software template').
-**!!! Don't forget to use the**
-**[Open Liberty software template](https://github.com/grace-maarten/platform-engineering-101/blob/main/artefacts/software-templates/liberty-template/template.yaml)**
-**or**
-**[Helm Open Liberty software template](https://github.com/grace-maarten/platform-engineering-101/blob/main/artefacts/software-templates/liberty-template/template-helm.yaml)**
-**instead of the one mentioned in the exercise.**
-
-**TODO rewrite:**
-When the template is initiated, go to the GitHub organization's repositories, 
-and you'll see that an application repository and a GitOps repository is created.
-Go to the application repository and check out the GitHub actions. You can use 
-docker build step to fetch the resulting docker image in case you don't have 
-ArgoCD enabled. Take this image, go to its details in GitHub and make it public.
-
-Now go to the OpenShift console and create a new application with this docker image.
-
-## Step 5: Custom (dynamic) plugins
-
-
-## TODO
-* Add GitHub actions visualisation before template creation.
-* https://github.com/organizations/workshop-devhub/settings/packages enable public
-  * via package settings > make public
-* create open liberty app via docker creation on openshift
-* add the other helm configurations
-* dynamic plugins: https://github.com/maarten-vandeperre/developer-hub-documentation/blob/main/README-CreateDynamicPlugins.md
-
-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
-1126197
