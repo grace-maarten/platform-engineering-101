@@ -12,6 +12,8 @@ Requirements to start the workshop:
 | https://github.com/GraceJansen        |                              |            |
 | https://github.com/NomanLatif         |                              |            |
 | https://github.com/tompis             |                              |            |
+| https://github.com/danielcrnic        |                              |            |
+| https://github.com/ewallerman         |                              |            |
 
 
 ## GitHub applications
