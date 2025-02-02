@@ -58,7 +58,9 @@ TODO - fallback scenario
 Installed operators:
 * Red Hat Developer Hub
 * Red Hat OpenShift GitOps
-* Red Hat OpenShift Dev Spaces
+* Red Hat OpenShift Dev Spaces 
+  * Installation of a dev spaces cluster can take +- 5 min.
+  * (Use this GitHub repo as workspace Git repo URL: https://github.com/grace-maarten/platform-engineering-101.git). This can take up to +- 2 minutes as well.
 
 ***Whenever you want to use the dev spaces with the default devfile (i.e., not the universal one), make sure to enable 
 the oc command:**  
@@ -216,7 +218,12 @@ can be found in this
 **[Helm Open Liberty software template](https://github.com/grace-maarten/platform-engineering-101/blob/main/artefacts/software-templates/liberty-template/template-helm.yaml)**
 **instead of the one mentioned in the exercise.**
 
-**TODO rewrite:**
+In case you run into permission issues: for that repository into your own organization.  
+E.g., https://github.com/workshop-devhub/platform-engineering-101/blob/main/artefacts/software-templates/liberty-template/template-helm.yaml
+  
+When this templates prompt you for a namespace in the second tab, it means the organization within GitHub
+  
+  
 When the template is initiated, go to the GitHub organization's repositories, 
 and you'll see that an application repository and a GitOps repository is created.
 Go to the application repository and check out the GitHub actions. You can use 
@@ -226,6 +233,12 @@ ArgoCD enabled. Take this image, go to its details in GitHub and make it public.
 Now go to the OpenShift console and create a new application with this docker image.
 
 ## Step 5: Custom (dynamic) plugins
+_Can be, that as admin, you need to:
+* Check user permissions to create image streams.
+  * oc auth can-i create imagestreams -n user13-devspaces --as=user13
+  * oc auth can-i create imagestreams -n user13-devspaces --as=user13
+_
+
 ### Environment setup
 First of all, execute the following commands to prepare the environment (e.g., yarn, npm configs, ...).  
 ```shell
@@ -243,9 +256,16 @@ source ~/.bashrc
 npm install -g yarn
 ```
 
+### Plugin development
+Now follow the instructions from [this training exercise](https://github.com/maarten-vandeperre/developer-hub-training-exercises/tree/main/custom-dynamic-plugins)
 
-## TODO
-* https://github.com/organizations/workshop-devhub/settings/packages enable public
-  * via package settings > make public
-* create open liberty app via docker creation on openshift
-* add the other helm configurations
+
+## Step 6: Customizing the Developer Hub instance
+Documentation pages:
+* https://docs.redhat.com/en/documentation/red_hat_developer_hub/1.4/html/customizing/index
+Examples:
+* https://github.com/redhat-developer/rhdh/blob/main/app-config.yaml
+* https://github.com/redhat-developer/rhdh/blob/main/docker/Dockerfile#L278
+
+
+
