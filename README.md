@@ -272,6 +272,30 @@ Examples:
 * https://github.com/redhat-developer/rhdh/blob/main/app-config.yaml
 * https://github.com/redhat-developer/rhdh/blob/main/docker/Dockerfile#L278
 
+**Example:**
+```yaml
+app-config.yaml: |
+  signInPage: github
+  app:
+    title: My Red Hat Developer Hub Instance
+    baseUrl: ${baseUrl}  # base url is coming from the 'secrets_rdhd-secret.yaml' config in 'setting-up-developer-hub-through-the-operator'
+    branding:
+      fullLogo: data:image/jpeg;base64,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
+      fullLogoWidth: "110px"
+      theme:
+        light:
+          primaryColor: "#444444"
+          headerColor1: "#ffffff"
+          headerColor2: "#555555"
+          navigationIndicatorColor: "#444444"
+        dark:
+          primaryColor: "#444444"
+          headerColor1: "#ffffff"
+          headerColor2: "#555555"
+          navigationIndicatorColor: "#444444"
+``` 
+
+For image: images/jfokus_50x47.jpeg, encoded by https://www.base64-image.de/
 
 ## Step 7: Extra information
 * Example repository: https://github.com/maarten-vandeperre/developer-hub-documentation
