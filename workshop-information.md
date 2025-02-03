@@ -15,7 +15,7 @@ Requirements to start the workshop:
 | https://github.com/wakelesstuna       | https://console-openshift-console.apps.rm2.thpm.p1.openshiftapps.com/api/auth/github/handler/frame           | app-0      |
 | https://github.com/MiloBarai          |                                                                                                              | app-0      |
 | https://github.com/tompis             | https://console-openshift-console.apps.rm3.7wse.p1.openshiftapps.com/api/auth/github/handler/frame           | app-0      |
-| https://github.com/danielcrnic        |                                                                                                              | app-0      |
+| https://github.com/danielcrnic        | https://console-openshift-console.apps.rm2.thpm.p1.openshiftapps.com/                                        | app-0      |
 | https://github.com/ewallerman         | https://console-openshift-console.apps.rm2.thpm.p1.openshiftapps.com/api/auth/github/handler/frame           | app-0      |
 | https://github.com/magua              |                                                                                                              | app-1      |
 | https://github.com/aznan2             |                                                                                                              | app-1      |
