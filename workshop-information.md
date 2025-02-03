@@ -24,7 +24,7 @@ Requirements to start the workshop:
 | https://github.com/ptuomaal           |                              | app-1      |
 | https://github.com/Flexba             |                              | app-1      |
 | https://github.com/wederbrand         |                              | app-1      |
-| https://github.com/OguzOzkeroglu      |                              | app-1      |
+| https://github.com/OguzOzkeroglu      |   https://console-openshift-console.apps.rm3.7wse.p1.openshiftapps.com/                           | app-1      |
 | https://github.com/turesson           |                              | app-1      |
 | https://github.com/blackscalare       |                              | app-1      |
 | https://github.com/JohanEkblad        |                              | app-1      |
