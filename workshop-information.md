@@ -19,5 +19,6 @@ Requirements to start the workshop:
 | https://github.com/ewallerman         |                              |            |
 | https://github.com/magua              |                              |            |
 | https://github.com/aznan2             |                              |            |
+| https://github.com/cmoscofian         |                              |            |
 
 ## GitHub applications
