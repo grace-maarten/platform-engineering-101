@@ -33,5 +33,6 @@ Requirements to start the workshop:
 | https://github.com/wahabmunir         | https://console-openshift-console.apps.rm3.7wse.p1.openshiftapps.com/api/auth/github/handler/frame           | app-1      |
 | https://github.com/vargensten         | https://console-openshift-console.apps.rm3.7wse.p1.openshiftapps.com/api/auth/github/handler/frame           | app-1      |
 | https://github.com/JonathanKayumbo    | https://console-openshift-console.apps.rm2.thpm.p1.openshiftapps.com/api/auth/github/handler/frame           | app-1      |
+| https://github.com/filiplx            | https://console-openshift-console.apps.rm3.7wse.p1.openshiftapps.com/api/auth/github/handler/frame           | app-1      |
 
 ## GitHub applications
