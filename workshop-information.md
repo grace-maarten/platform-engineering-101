@@ -30,5 +30,7 @@ Requirements to start the workshop:
 | https://github.com/JohanEkblad        |                              | app-1      |
 | https://github.com/marten-soderquist  |                              | app-1      |
 | https://github.com/burakfahri         |                              | app-1      |
+| https://github.com/wahabmunir         |                              | app-1      |
+
 
 ## GitHub applications
