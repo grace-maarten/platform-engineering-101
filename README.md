@@ -52,6 +52,27 @@ In order to get the OpenShift cluster, you will need to execute the following st
 7. Click "Launch" for Red Hat OpenShift.
 8. Click Log in with "dev sandbox". (Use this GitHub repo as workspace Git repo URL: https://github.com/grace-maarten/platform-engineering-101.git).
 
+9. ***Whenever you want to use the dev spaces with the default devfile (i.e., not the universal one), make sure to enable 
+the oc command:**   
+Install openshift cli:    
+_These commands can be executed from a terminal. In order to access a new terminal, click the hamburger icon in dev spaces,
+terminal > new terminal. When prompted, you can choose the workshop folder as root (i.e., platform-engineering-101)._  
+```shell
+curl -o oc.tar https://downloads-openshift-console.apps.rm1.0a51.p1.openshiftapps.com/amd64/linux/oc.tar
+```
+```shell
+tar -xvf oc.tar
+```
+```shell
+alias oc="$(pwd)/oc"
+```
+
+***Next to that, clone the exercise manifest files into this repository too (i.e., will be used later on in this workshop):***  
+```shell
+mkdir training-exercises
+cd training-exercises
+git clone https://github.com/maarten-vandeperre/developer-hub-training-exercises.git
+
 ### Step 1b: Obtain OpenShift through a demo environment
 Workshop home page: [https://catalog.demo.redhat.com/workshop/y49rsd](https://catalog.demo.redhat.com/workshop/y49rsd).  
 
