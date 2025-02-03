@@ -28,6 +28,7 @@ Requirements to start the workshop:
 | https://github.com/turesson           |                                                                                                              | app-1      |
 | https://github.com/blackscalare       |                                                                                                              | app-2      |
 | https://github.com/JohanEkblad        |                                                                                                              | app-2      |
+| https://github.com/filiplx            | https://console-openshift-console.apps.rm3.7wse.p1.openshiftapps.com/api/auth/github/handler/frame           | app-2      |
 | https://github.com/marten-soderquist  | https://console-openshift-console.apps.rm3.7wse.p1.openshiftapps.com/api/auth/github/handler/frame           | app-2      |
 | https://github.com/burakfahri         | https://console-openshift-console.apps.rm3.7wse.p1.openshiftapps.com                                         | app-2      |
 | https://github.com/wahabmunir         | https://console-openshift-console.apps.rm3.7wse.p1.openshiftapps.com/api/auth/github/handler/frame           | app-2      |
