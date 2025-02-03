@@ -16,7 +16,7 @@ Requirements to start the workshop:
 | https://github.com/MiloBarai          |                              | app-0      |
 | https://github.com/tompis             |                              | app-0      |
 | https://github.com/danielcrnic        |                              | app-0      |
-| https://github.com/ewallerman         |                              | app-0      |
+| https://github.com/ewallerman         | https://console-openshift-console.apps.rm2.thpm.p1.openshiftapps.com/ | app-0      |
 | https://github.com/magua              |                              | app-1      |
 | https://github.com/aznan2             |                              | app-1      |
 | https://github.com/cmoscofian         |                              | app-1      |
