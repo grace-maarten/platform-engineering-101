@@ -268,4 +268,9 @@ Examples:
 * https://github.com/redhat-developer/rhdh/blob/main/docker/Dockerfile#L278
 
 
+## Step 7:
+Extra information:  
+* Example repository: https://github.com/maarten-vandeperre/developer-hub-documentation
+
+
 
