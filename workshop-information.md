@@ -28,7 +28,7 @@ Requirements to start the workshop:
 | https://github.com/turesson           |                              | app-1      |
 | https://github.com/blackscalare       |                              | app-1      |
 | https://github.com/JohanEkblad        |                              | app-1      |
-| https://github.com/marten-soderquist  |                              | app-1      |
+| https://github.com/marten-soderquist  |   https://console-openshift-console.apps.rm3.7wse.p1.openshiftapps.com/                           | app-1      |
 | https://github.com/burakfahri         |                              | app-1      |
 | https://github.com/wahabmunir         |                              | app-1      |
 | https://github.com/vargensten         |                              | app-1      |
