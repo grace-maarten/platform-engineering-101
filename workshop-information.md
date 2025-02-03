@@ -15,7 +15,7 @@ Requirements to start the workshop:
 | https://github.com/wakelesstuna       | https://redhat-developer-hub-wakelesstuna-dev.apps.rm2.thpm.p1.openshiftapps.com/api/auth/github/handler/frame          | app-0      |
 | https://github.com/MiloBarai          |                                                                                                             | app-0      |
 | https://github.com/tompis             |https://redhat-developer-hub-tompis-dev.apps.rm3.7wse.p1.openshiftapps.com/api/auth/github/handler/frame           | app-0      |
-| https://github.com/danielcrnic        |                                                                                                             | app-0      |
+| https://github.com/danielcrnic        |https://redhat-developer-hub-danielcrnic-dev.apps.rm2.thpm.p1.openshiftapps.com/api/auth/github/handler/frame                                                                                                                | app-0      |
 | https://github.com/ewallerman         |https://redhat-developer-hub-ewallerman-dev.apps.rm2.thpm.p1.openshiftapps.com/api/auth/github/handler/frame          | app-0      |
 | https://github.com/magua              |                                                                                                             | app-1      |
 | https://github.com/aznan2             |                                                                                                             | app-1      |
