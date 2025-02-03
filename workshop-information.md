@@ -8,15 +8,15 @@ Requirements to start the workshop:
 
 | GitHub handle                         | OpenShift cluster basedomain | GitHub App |
 |---------------------------------------|------------------------------|------------|
-| https://github.com/maarten-vandeperre |                              |            |
-| https://github.com/GraceJansen        |                              |            |
-| https://github.com/NomanLatif         |                              |            |
-| https://github.com/ruuskju            |                              |            |
-| https://github.com/wakelesstuna       |                              |            |
-| https://github.com/MiloBarai          |                              |            |
-| https://github.com/tompis             |                              |            |
-| https://github.com/danielcrnic        |                              |            |
-| https://github.com/ewallerman         |                              |            |
-| https://github.com/magua              |                              |            |
+| https://github.com/maarten-vandeperre |                              | app-0      |
+| https://github.com/GraceJansen        |                              | app-0      |
+| https://github.com/NomanLatif         |                              | app-0      |
+| https://github.com/ruuskju            |                              | app-0      |
+| https://github.com/wakelesstuna       |                              | app-0      |
+| https://github.com/MiloBarai          |                              | app-0      |
+| https://github.com/tompis             |                              | app-0      |
+| https://github.com/danielcrnic        |                              | app-0      |
+| https://github.com/ewallerman         |                              | app-0      |
+| https://github.com/magua              |                              | app-1      |
 
 ## GitHub applications
