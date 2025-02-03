@@ -9,7 +9,7 @@ Requirements to start the workshop:
 | GitHub handle                         | OpenShift cluster basedomain | GitHub App |
 |---------------------------------------|------------------------------|------------|
 | https://github.com/maarten-vandeperre |   https://console-openshift-console.apps.rm1.0a51.p1.openshiftapps.com/                           | app-0      |
-| https://github.com/GraceJansen        |                              | app-0      |
+| https://github.com/GraceJansen        |   https://console-openshift-console.apps.rm3.7wse.p1.openshiftapps.com/                           | app-0      |
 | https://github.com/NomanLatif         |                              | app-0      |
 | https://github.com/ruuskju            |                              | app-0      |
 | https://github.com/wakelesstuna       |                              | app-0      |
