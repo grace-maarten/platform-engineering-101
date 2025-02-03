@@ -20,6 +20,7 @@ Requirements to start the workshop:
 | https://github.com/magua              |                              | app-1      |
 | https://github.com/aznan2             |                              | app-1      |
 | https://github.com/cmoscofian         |                              | app-1      |
+| https://github.com/Flexba             |                              | app-1      |
 | https://github.com/wederbrand         |                              | app-1      |
 | https://github.com/turesson           |                              | app-1      |
 
