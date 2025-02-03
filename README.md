@@ -73,6 +73,9 @@ curl -o oc.tar https://downloads-openshift-console.apps.rm1.0a51.p1.openshiftapp
 ```shell
 tar -xvf oc.tar
 ```
+```shell
+alias oc="$(pwd)/oc"
+```
 
 ***Next to that, clone the exercise manifest files into this repository too (i.e., will be used later on in this workshop):***  
 ```shell
