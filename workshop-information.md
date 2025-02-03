@@ -12,7 +12,7 @@ Requirements to start the workshop:
 | https://github.com/GraceJansen        |                              | app-0      |
 | https://github.com/NomanLatif         |                              | app-0      |
 | https://github.com/ruuskju            |                              | app-0      |
-| https://github.com/wakelesstuna       |                              | app-0      |
+| https://github.com/wakelesstuna       |  https://console-openshift-console.apps.rm2.thpm.p1.openshiftapps.com/                            | app-0      |
 | https://github.com/MiloBarai          |                              | app-0      |
 | https://github.com/tompis             |                              | app-0      |
 | https://github.com/danielcrnic        |                              | app-0      |
