@@ -53,7 +53,7 @@ In order to get the OpenShift cluster, you will need to execute the following st
 8. Click Log in with "dev sandbox". (Use this GitHub repo as workspace Git repo URL: https://github.com/grace-maarten/platform-engineering-101.git).
 
 ### Step 1b: Obtain OpenShift through a demo environment
-TODO - fallback scenario
+Workshop home page: [https://catalog.demo.redhat.com/workshop/y49rsd](https://catalog.demo.redhat.com/workshop/y49rsd).  
 
 Installed operators:
 * Red Hat Developer Hub
