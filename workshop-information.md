@@ -17,5 +17,6 @@ Requirements to start the workshop:
 | https://github.com/tompis             |                              |            |
 | https://github.com/danielcrnic        |                              |            |
 | https://github.com/ewallerman         |                              |            |
+| https://github.com/magua              |                              |            |
 
 ## GitHub applications
