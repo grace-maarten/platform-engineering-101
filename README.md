@@ -63,8 +63,10 @@ Installed operators:
   * (Use this GitHub repo as workspace Git repo URL: https://github.com/grace-maarten/platform-engineering-101.git). This can take up to +- 2 minutes as well.
 
 ***Whenever you want to use the dev spaces with the default devfile (i.e., not the universal one), make sure to enable 
-the oc command:**  
-install openshift cli:  
+the oc command:**   
+Install openshift cli:    
+_These commands can be executed from a terminal. In order to access a new terminal, click the hamburger icon in dev spaces,
+terminal > new terminal. When prompted, you can choose the workshop folder as root (i.e., platform-engineering-101)._  
 ```shell
 curl -o oc.tar https://downloads-openshift-console.apps.rm1.0a51.p1.openshiftapps.com/amd64/linux/oc.tar
 ```
@@ -271,6 +273,3 @@ Examples:
 ## Step 7:
 Extra information:  
 * Example repository: https://github.com/maarten-vandeperre/developer-hub-documentation
-
-
-
