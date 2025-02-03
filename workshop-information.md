@@ -32,7 +32,7 @@ Requirements to start the workshop:
 | https://github.com/burakfahri         |                              | app-1      |
 | https://github.com/wahabmunir         |                              | app-1      |
 | https://github.com/vargensten         |                              | app-1      |
-| https://github.com/JonathanKayumbo         |                              | app-1      |
+| https://github.com/JonathanKayumbo    | https://console-openshift-console.apps.rm2.thpm.p1.openshiftapps.com/                              | app-1      |
 
 
 ## GitHub applications
