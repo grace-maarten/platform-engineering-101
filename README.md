@@ -238,11 +238,11 @@ ArgoCD enabled. Take this image, go to its details in GitHub and make it public.
 Now go to the OpenShift console and create a new application with this docker image.
 
 ## Step 5: Custom (dynamic) plugins
-_Can be, that as admin, you need to:
-* Check user permissions to create image streams.
-  * oc auth can-i create imagestreams -n user13-devspaces --as=user13
-  * oc auth can-i create imagestreams -n user13-devspaces --as=user13
-_
+_Can be, that as admin, you need to:_
+* _Check user permissions to create image streams - if you use another namespace than e.g., user13._
+  * _oc auth can-i create imagestreams -n user13-devspaces --as=user13_
+  * _oc auth can-i create imagestreams -n user13-devspaces --as=user13_
+
 
 ### Environment setup
 First of all, execute the following commands to prepare the environment (e.g., yarn, npm configs, ...).  
