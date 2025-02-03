@@ -22,5 +22,11 @@ Requirements to start the workshop:
 | https://github.com/cmoscofian         |                              | app-1      |
 | https://github.com/benjn              |                              | app-1      |
 | https://github.com/ptuomaal           |                              | app-1      |
+| https://github.com/Flexba             |                              | app-1      |
+| https://github.com/wederbrand         |                              | app-1      |
+| https://github.com/OguzOzkeroglu      |                              | app-1      |
+| https://github.com/turesson           |                              | app-1      |
+| https://github.com/blackscalare       |                              | app-1      |
+| https://github.com/JohanEkblad       |                              | app-1      |
 
 ## GitHub applications
