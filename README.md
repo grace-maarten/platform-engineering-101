@@ -72,6 +72,7 @@ alias oc="$(pwd)/oc"
 mkdir training-exercises
 cd training-exercises
 git clone https://github.com/maarten-vandeperre/developer-hub-training-exercises.git
+```
 
 ### Step 1b: Obtain OpenShift through a demo environment
 Workshop home page: [https://catalog.demo.redhat.com/workshop/y49rsd](https://catalog.demo.redhat.com/workshop/y49rsd).  
