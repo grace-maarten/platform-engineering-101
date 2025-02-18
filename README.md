@@ -28,7 +28,7 @@ This workshop is split into 4 key sections with multiple sub-parts to each. Plea
 
 <a id="Step_1"></a>
 <details open>
-<summary>Step 1: OpenShift enablement</summary>
+<summary>Step 1</summary>
 
 ## Step 1: OpenShift enablement
 The first step to start the workshop is to have a running OpenShift cluster 
@@ -117,6 +117,8 @@ git clone https://github.com/maarten-vandeperre/developer-hub-training-exercises
 </details>
 
 <a id="Step_2"></a>
+<details open>
+<summary>Step 2</summary>
 
 ## Step 2: Install Red Hat Developer Hub on OpenShift
 
@@ -228,8 +230,11 @@ If you want to avoid to delete pods to get updates pushed through, you can use t
 ```shell
 oc rollout restart deployment/redhat-developer-hub
 ```
+</details>
 
 <a id="Step_3"></a>
+<details open>
+<summary>Step 3</summary>
 
 ## Step 3: Integrate with GitHub
 
@@ -592,7 +597,13 @@ This is not a bug: In order to enable these tabs, you will need to add annotatio
 
 ![](images/ci-tab_with_the_past_github_actions_and_a_button_to_retrigger_the_pipeline.png)
 
+
+
+</details>
+
 <a id="Step_4"></a>
+<details open>
+<summary>Step 4</summary>
 
 ## Step 4: Applying software templates / golden path templates
 _Source manifest files for the tutorials can be found in this repository:
@@ -646,7 +657,11 @@ ArgoCD enabled. Take this image, go to its details in GitHub and make it public.
 
 Now go to the OpenShift console and create a new application with this docker image.
 
+</details>
+
 <a id="Step_5"></a>
+<details open>
+<summary>Step 5</summary>
 
 ## Step 5: Custom (dynamic) plugins
 _Can be, that as admin, you need to:_
@@ -677,7 +692,11 @@ npm install -g yarn
 ### 5.2: Plugin development
 Now follow the instructions from [this training exercise](https://github.com/maarten-vandeperre/developer-hub-training-exercises/tree/main/custom-dynamic-plugins)
 
+</details>
+
 <a id="Step_6"></a>
+<details open>
+<summary>Step 6</summary>
 
 ## Step 6: Customizing the Developer Hub instance
 Documentation pages:
@@ -711,7 +730,13 @@ app-config.yaml: |
 
 For image: images/jfokus_50x47.jpeg, encoded by https://www.base64-image.de/
 
+</details>
+
 <a id="Step_7"></a>
+<details open>
+<summary>Step 7</summary>
 
 ## Step 7: Extra information
 * Example repository: https://github.com/maarten-vandeperre/developer-hub-documentation
+
+</details>
