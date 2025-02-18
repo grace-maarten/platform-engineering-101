@@ -240,6 +240,7 @@ There are advantages of working with a GitHub organization: you can better isola
 ![](images/setup_your_organization.png)
 
 3.1.c. Click **Complete setup**
+
 3.1.d. Go to settings of the organization
 
 ![](images/settings_of_the_organization.png)
@@ -249,8 +250,11 @@ There are advantages of working with a GitHub organization: you can better isola
 ![](images/developer_settings_github_app.png)
 
 3.1.f. Create GitHub App:
+
 i. Name: for us **developer-hub-training-app**
-ii. Homepage URL, i have used https://developers.redhat.com/ (you can fill what you want):
+
+ii. Homepage URL, i have used https://developers.redhat.com/ (you can fill what you want)
+
 iii. Uncheck the **active** box for webhook
 
 ![](images/post_installation.png)
@@ -280,6 +284,7 @@ v. Select **Only this account** for "Where can this GitHub App be installed"
 ![](images/github_app_be_installed.png)
 
 vi. Click **Create GitHub App**.
+
 vii. Get your client and app ID and store it somewhere where you can access it later on.
 
 ![](images/create_github_app_id.png)
@@ -293,6 +298,7 @@ ix. Store the client secret somewhere where you can access it later on.
 ![](images/store_the_client_secret.png)
 
 x. Click **Save changes**
+
 xi. Generate a private key. It will trigger the download of .pem file. Store it somewhere where you can access it later on.
 
 ![](images/generate_a_private_ke.png)
@@ -319,13 +325,13 @@ cd setting-up-developer-hub-through-the-operator/
 sh cheat/run_all.sh
 ```
 
-The required manifests are available in the [https://github.com/maarten-vandeperre/developer-hub-training-exercises](Developer Hub training exercises repository) on GitHub). For this exercise, all manifests are in the folder ‘github-integrations’, so check it out before going further.
+The required manifests are available in the [Developer Hub training exercises repository on GitHub](https://github.com/maarten-vandeperre/developer-hub-training-exercises). For this exercise, all manifests are in the folder ‘github-integrations’, so check it out before going further.
 
-  **3.2.a. Log in with OpenShift**
+  3.2.a. **Log in** with OpenShift
 
   As described in the last training exercise, you have the option to work with the UI (i.e., the OpenShift console) or with the command line interface (i.e., oc). Within this workshop I will opt for the command line interface, but if you’d like to work with the UI, feel free to check out the previous exercise. (In case you want to work with the UI, because you can’t install the oc command line tool, then you can check out OpenShift dev spaces as well. It will give you an IDE, accessible from the browser, running on OpenShift and already connected to the cluster).
 
-  **3.2.b. Add secrets and GitHub info into a secret**
+  3.2.b. **Add secrets** and GitHub info into a secret
 
   Within GitHub, we already created an organization and a GitHub app within that organization. For that GitHub application, we got an application ID, a client ID, a client secret and a private key. This is all information that we will need to pass to our Developer Hub deployment. As it is not safe to put this directly in the application configuration, we will opt for storing it in a secret and linking the secret to the application configuration afterward. 
 
@@ -349,7 +355,7 @@ The required manifests are available in the [https://github.com/maarten-vandeper
 
   ![](images/yaml_output.png)
 
-  **3.2.c. Create a dynamic plugins configuration**
+  3.2.c. **Create a dynamic plugins configuration**
 
   Dynamic plugins in Red Hat Developer Hub enable developers to extend the platform's functionality without modifying the core application. They allow users to create and integrate custom features, tools, or workflows that dynamically load into the platform at runtime. This approach ensures flexibility, as plugins can be updated, added, or removed independently of the core Developer Hub, enabling organizations to tailor the developer experience to their specific needs while maintaining seamless scalability and modularity.
   In order to enable GitHub integration, we will need to add a dynamic plugin for these integration(s) too. This can be done by applying the following YAML definition.
@@ -363,7 +369,7 @@ The required manifests are available in the [https://github.com/maarten-vandeper
 
   ![](images/dynamic_plugins_configuration_output.png)
 
-  **3.2.d. Create an application config configuration**
+  3.2.d. **Create an application config configuration**
 
   In Red Hat Developer Hub, the app-config.yaml file is the central configuration file that defines the behavior, integrations, and settings of the Developer Hub instance. It manages the platform’s core functionality and plugins by specifying:
 
@@ -385,7 +391,7 @@ The required manifests are available in the [https://github.com/maarten-vandeper
 
   ![](images/application_config_configuration_out_put.png)
 
-  **3.2.e. Add the dynamic plugins and the application configuration to the instance configuration**
+  3.2.e. **Add the dynamic plugins and the application configuration** to the instance configuration
 
   Now that we have the secrets configured, the dynamic plugins listed, and the application configuration configured, we just need to glue everything together within our Developer Hub instance configuration. This can be done by applying the following YAML definition.
 
@@ -430,7 +436,7 @@ Up until now, we worked with guest authentication, which is not something we wil
 
 In order to do so, you will need to:
 
-**3.3.a. Update your GitHub app configuration**
+3.3.a. **Update your GitHub app configuration**
 
   * Go to your organization’s GitHub Apps and click 'edit'.
  
@@ -448,7 +454,7 @@ In order to do so, you will need to:
 
   * Click 'save changes'
 
-**3.3.b. Add a new plugin to the dynamic plugins' configuration.**
+3.3.b. **Add a new plugin** to the dynamic plugins' configuration.
 
 It will be the GitHub org plugin, which is responsible for importing users and groups from GitHub into Developer Hub. You can add it to the dynamic plugins by applying the following YAML manifest: (changes are in between ‘added to enable github authentication’ blocks). (_version is v3, to be aligned with the app-config files, v2 doesn’t exist for the dynamic plugins_).
 
@@ -460,7 +466,7 @@ Expected output:
 
 ![](images/github_org.png)
 
-**3.3.c. Now that we have the new plugin enabled, we will need to add some configuration for it in the app-config file.**
+3.3.c. Now that we have the new plugin enabled, we will need to add some configuration for it in the app-config file.
 
 You can do this by applying the following YAML manifest: (_changes are in between ‘added to enable github authentication’ blocks_)
 
@@ -478,9 +484,9 @@ We didn’t need to add anything regarding the GitHub integration part, as it is
 * Add GitHub configuration in the auth providers section.
 * Set GitHub as a sign in page.
 
-**3.3.d. Wait for the pods to restart.**
+3.3.d. Wait for the pods to restart.
 
-**3.3.e. Now, go to the home page of Developer Hub (or log out as guest) and select GitHub login.**
+3.3.e. Now, go to the home page of Developer Hub (or log out as guest) and select GitHub login.
 
 ![](images/github_login.png)
 
@@ -492,7 +498,9 @@ We didn’t need to add anything regarding the GitHub integration part, as it is
 
 ![](images/guest_user.png)
 
-3.3.h. In case you want to disable the option to log in as a guest user, you can do this by applying the following YAML manifest: (_changes are in between ‘added to disable guest authentication’ blocks or highlighted with ‘ #changed to enable github authentication’_)
+3.3.h. In case you want to disable the option to log in as a guest user, you can do this by applying the following YAML manifest: 
+
+(_changes are in between ‘added to disable guest authentication’ blocks or highlighted with ‘ #changed to enable github authentication’_)
 
 ```shell
 oc apply -f manifests/app-config-v4.yaml
@@ -559,7 +567,7 @@ This is not a bug: In order to enable these tabs, you will need to add annotatio
 
 3.4.d. We will now configure our project/repository to enable the CI-tab for GitHub Actions. In order to do so, you will need to add the ‘project-slug’ annotation as shown in github-integrations > files > catalog-info.yaml. The slug exists of the organization name and the project name, separated by a forward slash.
 
-**!!! Important, change the organization name to yours! For me it is 'maarten-dev-hub-training-organization'**
+> **!!! Important, change the organization name to yours! For me it is 'maarten-dev-hub-training-organization'**
 
 ![](images/maarten-dev-hub-training-organization.png)
 
