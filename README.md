@@ -24,6 +24,8 @@ This workshop is split into 4 key sections with multiple sub-parts to each. Plea
 * **[Step 6: Customizing the Developer Hub instance](#Step_6)**
 * **[Step 7: Extra information](#Step_7)**
 
+We've created each of these sections as collapsable segments in the readme to help make it easier to navigate through this workshop. By default they are open, but feel free to collapse them as you move through each step.
+
 ***
 
 ## Workshop Instructions
@@ -88,7 +90,7 @@ In order to get the OpenShift cluster, you will need to execute the following st
 
 Note: When interacting with an OpenShift cluster, you can make use of the OpenShift CLI. Command line tools can be found by logging in to an OpenShift cluster, clicking the question mark button in the top right corner and selecting the tool you want to download. In case you don't want to configure your local machine, you can make use of Red Hat Dev Spaces.
 
-* Whenever you want to use the [https://developers.redhat.com/products/openshift-dev-spaces/overview](dev spaces) with the default devfile (i.e., not the universal one), make sure to enable the oc command: 
+* Whenever you want to use the [dev spaces](https://developers.redhat.com/products/openshift-dev-spaces/overview) with the default devfile (i.e., not the universal one), make sure to enable the oc command: 
 
   * Install openshift cli:    
 
@@ -122,8 +124,8 @@ git clone https://github.com/maarten-vandeperre/developer-hub-training-exercises
 
 ## Step 2: Install Red Hat Developer Hub on OpenShift
 We're now ready to install Red Hat Developer Hub on OpenShift. For this you have two options:
-1. Using an [https://www.redhat.com/en/technologies/cloud-computing/openshift/what-are-openshift-operators](Operator).
-2. Using [https://www.redhat.com/en/topics/devops/what-is-helm](Helm charts).
+1. Using an [Operator](https://www.redhat.com/en/technologies/cloud-computing/openshift/what-are-openshift-operators).
+2. Using [Helm charts](https://www.redhat.com/en/topics/devops/what-is-helm).
   
 The preferred installation method depends on the type of environment 
 you've chosen (e.g., existing OpenShift instance, demo environment or developer sandbox):
@@ -145,9 +147,6 @@ _We will be using 'developer-hub' as the name of the instance. Feel free to chan
 to what you like, but know that you will have to pay attention to the configurations
 later on in this workshop: you'll need to check that the name is correct if you
 didn't go along with 'developer-hub'._
-
-* In order to do so, you can follow 
-[this training exercise](https://developers.redhat.com/learning/learn:openshift:install-and-configure-red-hat-developer-hub-and-explore-templating-basics/resource/resources:install-red-hat-developer-hub-developer-sandbox).  
 
 
 As mentioned, at the time of publishing, when installing Developer Hub via the Developer Sandbox for Red Hat OpenShift, you need to use a Helm chart. In future releases, this process will be changed to use a dedicated Operator, which will make setting up and configuring the system easier. 
@@ -172,7 +171,7 @@ Now that you are in your Developer Sandbox account:
 
 ![](images/rhdh_lp_fig7.png)
 
-* Click Create to reach the Create Helm Release screen
+* Click **Create** to reach the Create Helm Release screen
 
 For the sake of initial simplicity, you will install Developer Hub with all of the defaults, then add additional features (including GitHub authorization) after installation. The advantage of installing Developer Hub onto OpenShift is that we can change the configuration parameters via injected Secrets after we have a running version. Doing this restarts the pods with the new configuration injected as components using appropriately named Secrets, which simplifies customizing and configuring Developer Hub.
 
@@ -204,11 +203,11 @@ _Info alert: Note: If you see a screen prompting you to log in as Guest or via G
 
 Because you haven’t set up authentication yet, what you see is the guest viewpoint. By default, Developer Hub and Backstage allow a guest user, which the system defaults to in the absence of an authentication method being added. This is why we need to set up GitHub authentication, which is our next step.
 
-**!!! When you use the Helm based installation, be aware that the pods don't automatically 
+**_NOTE:_**!!! When you use the Helm based installation, be aware that the pods don't automatically 
 restart when applying changes. Make sure to kill the Developer Hub when applying new configurations
 (e.g., dynamic plugins, app config, ...). The reason for this is that the Helm chart does not monitor 
 secrets or configmaps for changes, only what is done through a Helm upgrade.
-If you want to avoid to delete pods to get updates pushed through, you can use the following command:**
+If you want to avoid to delete pods to get updates pushed through, you can use the following command:
 ```shell
 oc rollout restart deployment/redhat-developer-hub
 ```
