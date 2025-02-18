@@ -235,23 +235,23 @@ There are advantages of working with a GitHub organization: you can better isola
 ![](images/github-organization.png)
 ![](images/organization.png)
 
-3.1.b. Fill the form and hit "next"
+3.1.b. Fill the form and hit **Next**
 
 ![](images/setup_your_organization.png)
 
-3.1.c. Click "Complete setup"
+3.1.c. Click **Complete setup**
 3.1.d. Go to settings of the organization
 
 ![](images/settings_of_the_organization.png)
 
-3.1.e. Scroll down to "Developer Settings" > "GitHub Apps", not to "GitHub Apps" under Third-party access 
+3.1.e. Scroll down to **Developer Settings > GitHub Apps**, not to "GitHub Apps" under Third-party access 
 
 ![](images/developer_settings_github_app.png)
 
 3.1.f. Create GitHub App:
-i. Name: for us "developer-hub-training-app"
+i. Name: for us **developer-hub-training-app**
 ii. Homepage URL, i have used https://developers.redhat.com/ (you can fill what you want):
-iii. Uncheck the "active" box for webhook
+iii. Uncheck the **active** box for webhook
 
 ![](images/post_installation.png)
 
@@ -275,11 +275,11 @@ iv. When creating a GitHub App, you must select permissions (i.e., repository an
   * Secrets: Read & write (if templates include GitHub Action Repository Secrets)
   * Environments: Read & write (if templates include GitHub Environments)
 
-v. Select "Only this account" for "Where can this GitHub App be installed"
+v. Select **Only this account** for "Where can this GitHub App be installed"
 
 ![](images/github_app_be_installed.png)
 
-vi. Click "Create GitHub App".
+vi. Click **Create GitHub App**.
 vii. Get your client and app ID and store it somewhere where you can access it later on.
 
 ![](images/create_github_app_id.png)
@@ -292,7 +292,7 @@ ix. Store the client secret somewhere where you can access it later on.
 
 ![](images/store_the_client_secret.png)
 
-x. Click "save changes"
+x. Click **Save changes**
 xi. Generate a private key. It will trigger the download of .pem file. Store it somewhere where you can access it later on.
 
 ![](images/generate_a_private_ke.png)
@@ -301,12 +301,10 @@ xii. Install the application
 
 ![](images/install_the_application.png)
 
-xiii. Click "install"
+xiii. Click **Install**
 
 ![](images/install_developer_hub.png)
 
-Next to the written tutorial, we've created a [dynamic video tutorial](https://app.arcade.software/share/yAz2okhKSeBNCRrqmQ39),
-which you can follow as well to obtain these parameters. (Whenever the video pauses, you have to click 'next' or 'arrow right' to continue).
 
 <a id="Step_3.2"></a>
 
