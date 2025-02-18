@@ -8,7 +8,7 @@ If you're unsure of any of these terms, please take a look at the accompanying s
 This workshop is split into 4 key sections with multiple sub-parts to each. Please refer to the following outline for an idea of what's involved in this workshop:
 
 * **[Step 1: OpenShift enablement](#Step_1)**
-  * [1.1 Obtain OpenShift through developers.redhat.com](#Step_1.1)
+  * [1.1 Set up your Developer Sandbox on Openshift](#Step_1.1)
   * [1.2 Clone excerise manifest files for this workshop](#Step_1.1)
 * **[Step 2: Install Red Hat Developer Hub on OpenShift](#Step_2)**
   * [2.1: Install Red Hat Developer Hub in your Developer Sandbox through Helm Charts](#Step_2.1)
@@ -43,7 +43,7 @@ OpenShift cluster:
 
 <a id="Step_1.1"></a>
 
-### 1.1 Obtain OpenShift through developers.redhat.com
+### 1.1 Set up your Developer Sandbox on Openshift
 The [Red Hat Developers website](https://developers.redhat.com) 
 is Red Hat's central hub for developers, 
 offering many resources to build, deploy, and manage applications using 
@@ -74,23 +74,24 @@ we will use.
   (e.g., through the deployment screen in the OpenShift console).
 
 In order to get the OpenShift cluster, you will need to execute the following steps:
-1. Go to the [Red Hat Developers website](https://developers.redhat.com).
-2. Log in (or create an account).
-3. Go to the menu item "Developer Sandbox".
-4. Click "Explore the free Developer Sandbox".
-5. Click "Start your sandbox for free".
-6. Click "Get started" and you will see three available services
-   * The OpenShift sandbox.
-   * OpenShift dev spaces (an IDE running on OpenShift/Kubernetes), which is accessible through the browser.
-   * The OpenShift AI sandbox.
-7. Click "Launch" for Red Hat OpenShift.
-8. Click Log in with "dev sandbox". (Use this GitHub repo as workspace Git repo URL: https://github.com/grace-maarten/platform-engineering-101.git).
+* Go to the [Red Hat Developers website](https://developers.redhat.com).
+* Log in (or create an account).
+* Go to the menu item **Developer Sandbox**.
+* Click **Explore the free Developer Sandbox**.
+* Click **Start your sandbox for free**.
+* Click **Get started** and you will see three available services
+  * The OpenShift sandbox.
+  * OpenShift dev spaces (an IDE running on OpenShift/Kubernetes), which is accessible through the browser.
+  * The OpenShift AI sandbox.
+* Click **Launch** for Red Hat OpenShift.
+* Click Log in with **dev sandbox**. (Use this GitHub repo as workspace Git repo URL: https://github.com/grace-maarten/platform-engineering-101.git).
 
-9. ***Whenever you want to use the dev spaces with the default devfile (i.e., not the universal one), make sure to enable 
-the oc command:**   
-Install openshift cli:    
-_These commands can be executed from a terminal. In order to access a new terminal, click the hamburger icon in dev spaces,
-terminal > new terminal. When prompted, you can choose the workshop folder as root (i.e., platform-engineering-101)._  
+Note: When interacting with an OpenShift cluster, you can make use of the OpenShift CLI. Command line tools can be found by logging in to an OpenShift cluster, clicking the question mark button in the top right corner and selecting the tool you want to download. In case you don't want to configure your local machine, you can make use of Red Hat Dev Spaces.
+
+* Whenever you want to use the [https://developers.redhat.com/products/openshift-dev-spaces/overview](dev spaces) with the default devfile (i.e., not the universal one), make sure to enable the oc command: 
+
+  * Install openshift cli:    
+
 ```shell
 curl -o oc.tar https://downloads-openshift-console.apps.rm1.0a51.p1.openshiftapps.com/amd64/linux/oc.tar
 ```
@@ -100,16 +101,13 @@ tar -xvf oc.tar
 ```shell
 alias oc="$(pwd)/oc"
 ```
-
-_Note: When interacting with an OpenShift cluster, you can make use of the OpenShift CLI._
-_Command line tools can be found by logging in to an OpenShift cluster, clicking the 
-question mark button in the top right corner and selecting the tool you want to download.
-In case you don't want to configure your local machine, you can make use of Red Hat Dev Spaces._
+_These commands can be executed from a terminal. In order to access a new terminal, click the hamburger icon in dev spaces,
+terminal > new terminal. When prompted, you can choose the workshop folder as root (i.e., platform-engineering-101)._  
 
 <a id="Step_1.2"></a>
 
 ### 1.2 Clone excerise manifest files for this workshop
-Next to that, clone the exercise manifest files into this repository too. These will be used later on in this workshop.
+You should now have successfully set up your developer sandbox and set up the workspace Git repo. For the purposes of this workshop, you'll also need to clone the exercise manifest files into this repository too. These will be used later on in this workshop.
 
 ```shell
 mkdir training-exercises
@@ -123,13 +121,12 @@ git clone https://github.com/maarten-vandeperre/developer-hub-training-exercises
 <summary>Step 2</summary>
 
 ## Step 2: Install Red Hat Developer Hub on OpenShift
-
-To install Red Hat Developer Hub on OpenShift, you have two options:
-1. Using an operator.
-2. Using Helm charts.
+We're now ready to install Red Hat Developer Hub on OpenShift. For this you have two options:
+1. Using an [https://www.redhat.com/en/technologies/cloud-computing/openshift/what-are-openshift-operators](Operator).
+2. Using [https://www.redhat.com/en/topics/devops/what-is-helm](Helm charts).
   
 The preferred installation method depends on the type of environment 
-you've chosen (e.g., demo environment or developer sandbox):
+you've chosen (e.g., existing OpenShift instance, demo environment or developer sandbox):
 
 * If you already have an OpenShift cluster, you can use the Red Hat Developer Hub Operator as the **Operator Framework is enabled**, so the operator-based installation would be recommended.
 * If your OpenShift cluster does **not** have the **Operator Framework enabled**, **or** if you **require more fine-grained control**, the Helm-based installation is the better option.
