@@ -7,25 +7,27 @@ If you're unsure of any of these terms, please take a look at the accompanying s
 ## Overview
 This workshop is split into 4 key sections with multiple sub-parts to each. Please refer to the following outline for an idea of what's involved in this workshop:
 
-* [Step 1: OpenShift enablement](#Step_1)
+* **[Step 1: OpenShift enablement](#Step_1)**
   * [1.1 Obtain OpenShift through developers.redhat.com](#Step_1.1)
   * [1.2 Clone excerise manifest files for this workshop](#Step_1.1)
-* [Step 2: Install Red Hat Developer Hub on OpenShift](#Step_2)
+* **[Step 2: Install Red Hat Developer Hub on OpenShift](#Step_2)**
   * [2.1: Install Red Hat Developer Hub through Helm Charts](#Step_2.1)
-* [Step 3: Integrate with GitHub](#Step_3)
+* **[Step 3: Integrate with GitHub](#Step_3)**
   * [3.1: Get the credentials for a GitHub application within a GitHub organization](#Step_3.1)
   * [3.2: Create a basic GitHub integration within Developer Hub (i.e., repository creation and scanning)](#Step_3.2)
   * [3.3: Enable GitHub authentication](#Step_3.3)
   * [3.4: Enable GitHub actions (optional)](#Step_3.4)
-* [Step 4: Applying software templates / golden path templates](#Step_4)
-* [Step 5: Custom (dynamic) plugins](#Step_5)
+* **[Step 4: Applying software templates / golden path templates](#Step_4)**
+* **[Step 5: Custom (dynamic) plugins](#Step_5)**
   * [5.1: Environment setup](#Step_5.1)
   * [5.2: Plugin development](#Step_5.2)
-* [Step 6: Customizing the Developer Hub instance](#Step_6)
-* [Step 7: Extra information](#Step_7)
+* **[Step 6: Customizing the Developer Hub instance](#Step_6)**
+* **[Step 7: Extra information](#Step_7)**
 
 
 <a id="Step_1"></a>
+<details>
+<summary>Step 1: OpenShift enablement</summary>
 
 ## Step 1: OpenShift enablement
 The first step to start the workshop is to have a running OpenShift cluster 
@@ -106,7 +108,7 @@ mkdir training-exercises
 cd training-exercises
 git clone https://github.com/maarten-vandeperre/developer-hub-training-exercises.git
 ```
-
+</details>
 <a id="Step_2"></a>
 
 ## Step 2: Install Red Hat Developer Hub on OpenShift
