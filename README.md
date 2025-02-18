@@ -2,7 +2,7 @@
 
 Welcome to this workshop on getting started with Platform Engineering with Red Hat Developer Hub. In this workshop, we'll guide you through how to set up Red Hat Developer Hub on OpenShift through the free sandbox environment as your Internal Developer Portal, and then how you can start creating and using software templates in this portal to enable your own Internal Developer Platform (IDP). 
 
-If you're unsure of any of these terms, please take a look at the accompanying slides in this GitHub repository - this provides an overview of the theory behind this workshop and intros the key technologies used.
+If you're unsure of any of these terms, please take a look at the [accompanying slides](slides/WorkshopPlatformEngineering101.pdf) in this GitHub repository - this provides an overview of the theory behind this workshop and intros the key technologies used.
 
 ## Overview
 This workshop is split into 4 key sections with multiple sub-parts to each. Please refer to the following outline for an idea of what's involved in this workshop:
