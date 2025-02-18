@@ -601,11 +601,15 @@ For this exercise, we will make use of the following software template:
 * For Operator-based installation: [Open Liberty software template](https://github.com/grace-maarten/platform-engineering-101/blob/main/artefacts/software-templates/liberty-template/template.yaml)
 * For Helm-based installation: [Helm Open Liberty software template](https://github.com/grace-maarten/platform-engineering-101/blob/main/artefacts/software-templates/liberty-template/template-helm.yaml)
 
-**!! In order to be able to initiate a software template, you'll need to make sure that you have a personal access token from GitHub:**
-1. Go to [GitHub profile settings](https://github.com/settings/profile).
-2. Got to Developer settings > Personal access tokens > Tokens (classic).
-3. Click 'Generate new token' > Generate new token (classic).
-4. Add these scopes to the token:
+<a id="Step_4.1"></a>
+
+### 4.1: Get a personal access token from GitHub
+In order to be able to initiate a software template, you'll need to make sure that you have a personal access token from GitHub:
+
+* Go to [GitHub profile settings](https://github.com/settings/profile).
+* Got to **Developer settings > Personal access tokens > Tokens (classic)**.
+* Click **Generate new token > Generate new token (classic)**.
+* Add these scopes to the token:
    * **Reading software components:**
      * repo 
    * **Reading organization data:**
@@ -615,7 +619,84 @@ For this exercise, we will make use of the following software template:
    * **Publishing software templates:**
      * repo 
      * workflow (if templates include GitHub workflows)
-5. Store it somewhere: you'll need it later on when initiating a software template (i.e., within the form of the software template initiation).
+* Store it somewhere: you'll need it later on when initiating a software template (i.e., within the form of the software template initiation).
+
+<a id="Step_4.2"></a>
+
+### 4.2: Add software template to Developer Hub
+
+The golden path template (i.e. software template) in Developer Hub is a standardized blueprint that helps teams create new projects or services consistently and efficiently. These templates provide pre-configured best practices, coding standards, and integrations tailored to an organization’s needs. Developers can use them to quickly scaffold projects, such as microservices, libraries, or applications, ensuring compliance with organizational guidelines and streamlining onboarding. By promoting reuse and automation, golden path templates accelerate development and reduce cognitive load for developers. 
+
+As a first integration, we will initiate a golden path, also known as a software template. In order to do so, go to "create". When you are logged in with admin permissions, you will have the possibility to add templates to Developer Hub from within this screen.
+
+![](images/create_a_repository_via_a_software_template.png)
+
+As for now, we have the opportunity to manually add a software template or to configure it via the app-config file. In order to add it via the app-config file, you can apply the following YAML definition:
+
+``` Shell
+oc apply -f manifests/app-config-v2.yaml 
+```
+
+Expected output:
+
+![](images/software_template_output.png)
+
+In the updated YAML, I added ‘added to enable software templates’ section to show which configuration was added. It is mainly a location reference and a rule to enable certain catalog entities in Developer Hub (of which Template is one). More on catalog entities in later training exercises. This configuration will make use of the GitHub integrations configuration to enable repository creation in GitHub. It can take a couple of minutes, depending on the processing interval you configured for the template to be imported. You can monitor this in the backstage_plugin_catalog database.
+
+When you execute the debug query, you should be seeing something like this:
+
+![](images/debug_query.png)
+
+Now that we have the template, we can initiate it.
+
+  * Go to the software template catalog, select the template **Default Quarkus Application** and click **Choose**.
+
+![](images/software_template.png)
+
+* Fill the section **Repository Information**:
+
+  * Repository name: I opt for "first-initiated-software-template". (I will reuse it as a component name, which will be the name in Developer Hub).
+  * Repository owner: The GitHub owner of the repository. For me, it is "maarten-dev-hub-training-organization". You can find it back by going to your repositories in GitHub: E.g., for 'https://github.com/maarten-dev-hub-training-organization/initial-test-repo', it is 'maarten-dev-hub-training-organization'.
+
+![](images/repository_information.png)
+
+* Fill the section "Component Information":
+
+  * Name: The name of the component in GitHub. I opt for "first-initiated-software-template-component".
+  * Owner: The owner within Developer Hub. For now, we didn’t configure any owners, so just fill in a random name. I opt for "unset-owner". When you enter it, it becomes ‘group:default/unset-owner’ automatically.
+
+![](images/component_information.png)
+
+* Click **Review**.
+
+![](images/review.png)
+
+* Click **Create**.
+
+![](images/successful_run_of_software_template.png)
+
+The repository should now be created in GitHub.
+
+![](images/created_in_github.png)
+
+In real world use cases, you would add an extra configuration in the template definition that directly adds this component to the component catalog, but for now, when we want to see it in Developer Hub, we will have to wait for the GitHub provider to import the component in Developer Hub.
+
+![](images/component_catalog.png)
+
+As we are a one-person organization at the moment, we will need to restrict the security on the projects a bit, in order to modify them (please, don’t do this in real-world scenarios). In order to achieve this:
+* Go to the repository
+* Go to settings
+* Go to branches
+* Click **Edit** on the main branch. 
+
+![](images/_main_branch.png)
+
+* Uncheck **Require a pull request before merging**. 
+
+![](images/require_a_pull_request_before_merging.png)
+
+* Save changes.
+
 
 Instructions on how to add software templates to Developer Hub and how to apply them,
 can be found in this
