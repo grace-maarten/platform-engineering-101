@@ -25,6 +25,8 @@ This workshop is split into 4 key sections with multiple sub-parts to each. Plea
 * **[Step 6: Customizing the Developer Hub instance](#Step_6)**
 * **[Step 7: Extra information](#Step_7)**
 
+***
+
 
 <a id="Step_1"></a>
 <details open>
