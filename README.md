@@ -11,8 +11,7 @@ This workshop is split into 4 key sections with multiple sub-parts to each. Plea
   * [1.1 Obtain OpenShift through developers.redhat.com](#Step_1.1)
   * [1.2 Clone excerise manifest files for this workshop](#Step_1.1)
 * **[Step 2: Install Red Hat Developer Hub on OpenShift](#Step_2)**
-  * [2.1 Set up your Developer Sandbox](#Step_2.1)
-  * [2.2: Install Red Hat Developer Hub in your Developer Sandbox through Helm Charts](#Step_2.2)
+  * [2.1: Install Red Hat Developer Hub in your Developer Sandbox through Helm Charts](#Step_2.1)
 * **[Step 3: Integrate with GitHub](#Step_3)**
   * [3.1: Get the credentials for a GitHub application within a GitHub organization](#Step_3.1)
   * [3.2: Create a basic GitHub integration within Developer Hub (i.e., repository creation and scanning)](#Step_3.2)
@@ -27,6 +26,7 @@ This workshop is split into 4 key sections with multiple sub-parts to each. Plea
 
 ***
 
+## Workshop Instructions
 
 <a id="Step_1"></a>
 <details open>
@@ -138,24 +138,7 @@ Because we are using the Openshift developer sandbox in this workshop, which doe
 
 <a id="Step_2.1"></a>
 
-### 2.1 Set up your Developer Sandbox
-The Developer Sandbox is a 30-day, no-cost OpenShift cluster. To prepare your instance for this workshop:
-* Go to the Developer Sandbox page: https://console.redhat.com/openshift/sandbox.
-* If you are not logged in, you will reach the Log in to your Red Hat account screen. 
-* Do you have a Red Hat account?
-  * Yes - Follow the prompts to log in with your method of choice.
-  * No - Click **Register for a Red Hat account** and follow the process, then log in. You can use this account for many things throughout Red Hat.
-* Once you reach https://console.redhat.com/openshift/sandbox, click the **Get started** button to create or launch your Developer Sandbox.
-* When you reach the "Congratulations, you're ready to get started!" dialog box, click **Got it**.
-* Go to the Red Hat OpenShift tile and click **Launch**.
-* When you reach the "Log in with..." screen, click **DevSandbox**. Follow the prompts to enter the Developer Sandbox.
-* When you see "Welcome to the Developer Perspective!", you are in Red Hat OpenShift within the Developer Sandbox. To proceed, click **Skip Tour**.
-
-You can launch the guided tour later at any time by going to the question mark icon in the upper-right corner next to your account name.
-
-<a id="Step_2.2"></a>
-
-### 2.2: Install Red Hat Developer Hub in your Developer Sandbox through Helm Charts
+### 2.1: Install Red Hat Developer Hub in your Developer Sandbox through Helm Charts
 _You can't choose the namespace within the sandbox: It will be something like
 'username + -dev'. Know that you will have to pay attention to the configurations 
 later on in this workshop: you'll need to check that the namespace is correct as
