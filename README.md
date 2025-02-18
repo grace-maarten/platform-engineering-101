@@ -8,11 +8,21 @@ If you're unsure of any of these terms, please take a look at the accompanying s
 This workshop is split into 4 key sections with multiple sub-parts to each. Please refer to the following outline for an idea of what's involved in this workshop:
 
 * [Step 1: OpenShift enablement](#Step_1)
-* Step 2: Install Red Hat Developer Hub on OpenShift
-* Step 3: Integrate with GitHub
-* Step 4: Applying software templates / golden path templates
-* Step 5: Custom (dynamic) plugins
-* Step 6: Customizing the Developer Hub instance
+  * [1.1 Obtain OpenShift through developers.redhat.com](#Step_1.1)
+  * [1.2 Clone excerise manifest files for this workshop](#Step_1.1)
+* [Step 2: Install Red Hat Developer Hub on OpenShift](#Step_2)
+  * [2.1: Install Red Hat Developer Hub through Helm Charts](#Step_2.1)
+* [Step 3: Integrate with GitHub](#Step_3)
+  * [3.1: Get the credentials for a GitHub application within a GitHub organization](#Step_3.1)
+  * [3.2: Create a basic GitHub integration within Developer Hub (i.e., repository creation and scanning)](#Step_3.2)
+  * [3.3: Enable GitHub authentication](#Step_3.3)
+  * [3.4: Enable GitHub actions (optional)](#Step_3.4)
+* [Step 4: Applying software templates / golden path templates](#Step_4)
+* [Step 5: Custom (dynamic) plugins](#Step_5)
+  * [5.1: Environment setup](#Step_5.1)
+  * [5.2: Plugin development](#Step_5.2)
+* [Step 6: Customizing the Developer Hub instance](#Step_6)
+* [Step 7: Extra information](#Step_7)
 
 
 <a id="Step_1"></a>
@@ -26,7 +36,9 @@ OpenShift cluster:
     which offers tutorials, free e-books, and access to a free OpenShift sandbox.
 * From a demo environment provided for you.
 
-### Step 1: Obtain OpenShift through developers.redhat.com
+<a id="Step_1.1"></a>
+
+### 1.1 Obtain OpenShift through developers.redhat.com
 The [Red Hat Developers website](https://developers.redhat.com) 
 is Red Hat's central hub for developers, 
 offering many resources to build, deploy, and manage applications using 
@@ -84,12 +96,18 @@ tar -xvf oc.tar
 alias oc="$(pwd)/oc"
 ```
 
-***Next to that, clone the exercise manifest files into this repository too (i.e., will be used later on in this workshop):***  
+<a id="Step_1.2"></a>
+
+### 1.2 Clone excerise manifest files for this workshop
+Next to that, clone the exercise manifest files into this repository too (i.e., will be used later on in this workshop):
+
 ```shell
 mkdir training-exercises
 cd training-exercises
 git clone https://github.com/maarten-vandeperre/developer-hub-training-exercises.git
 ```
+
+<a id="Step_2"></a>
 
 ## Step 2: Install Red Hat Developer Hub on OpenShift
 _When interacting with an OpenShift cluster, you can make use of the OpenShift CLI._
@@ -110,7 +128,9 @@ you've chosen (e.g., demo environment or developer sandbox):
     **or** if you **require more fine-grained control**, the Helm-based installation is 
     the better option.
 
-### Step 2a: Install Red Hat Developer Hub through Helm Charts
+<a id="Step_2.1"></a>
+
+### 2.1: Install Red Hat Developer Hub through Helm Charts
 _You can't choose the namespace within the sandbox: It will be something like
 'username + -dev'. Know that you will have to pay attention to the configurations 
 later on in this workshop: you'll need to check that the namespace is correct as
@@ -137,6 +157,8 @@ If you want to avoid to delete pods to get updates pushed through, you can use t
 oc rollout restart deployment/redhat-developer-hub
 ```
 
+<a id="Step_3"></a>
+
 ## Step 3: Integrate with GitHub
 
 Before diving into tasks like setting up software templates, we first need to establish integration with a Git repository. 
@@ -147,7 +169,9 @@ In order to get started with the GitHub integration, we will need some data/cred
 * client secret.
 * private key (i.e., .pem file).  
 
-### Step 3.1 Get the credentials for a GitHub application within a GitHub organization
+<a id="Step_3.1"></a>
+
+### 3.1: Get the credentials for a GitHub application within a GitHub organization
 
 There are advantages of working with a GitHub organization: you can better isolate repositories, you can work together with multiple people without having to share credentials, ….
 
@@ -229,7 +253,9 @@ xiii. Click "install"
 Next to the written tutorial, we've created a [dynamic video tutorial](https://app.arcade.software/share/yAz2okhKSeBNCRrqmQ39),
 which you can follow as well to obtain these parameters. (Whenever the video pauses, you have to click 'next' or 'arrow right' to continue).
 
-### 3.2. Create a basic GitHub integration within Developer Hub (i.e., repository creation and scanning)
+<a id="Step_3.2"></a>
+
+### 3.2: Create a basic GitHub integration within Developer Hub (i.e., repository creation and scanning)
 
 In order to create the GitHub integrations, we will start from the configuration that we ended up with in the previous section. 
 
@@ -343,7 +369,9 @@ The required manifests are available in the [https://github.com/maarten-vandeper
 
   In case you’re facing "github-provider:providerId refresh failed, HttpError: API rate limit exceeded, you’re required to log in", check if the organization name is correct and that your secret values are mapped correctly. I faced the issue when I made a copy-paste error on the organization name in the app-config file.
 
-### 3.3 Enable GitHub authentication
+<a id="Step_3.3"></a>
+
+### 3.3: Enable GitHub authentication
 
 Up until now, we worked with guest authentication, which is not something we will do in a production setting. There are quite a few supported user providers like OpenID compliant systems (e.g., Keycloak), GitLab, …. For this exercise, we will stick to GitHub authentication.
 
@@ -445,7 +473,9 @@ In case you would get an error mentioning "the redirect_uri is not associated wi
 
   * Now scroll down to the save button and click "save changes".
 
-## 3.4 Enable GitHub actions (optional)
+<a id="Step_3.4"></a>
+
+### 3.4: Enable GitHub actions (optional)
 For now, we will work with public repositories. In case you would have initiated a private repository, you can make it public via repository > settings > general > advanced > change visibility > change to public. In case you are working with private repositories (for now), it can be that the CI tab is showing up, but that it doesn’t contain any workflows. 
 
 ![](images/enable_github_actions.png)
@@ -490,6 +520,7 @@ This is not a bug: In order to enable these tabs, you will need to add annotatio
 
 ![](images/ci-tab_with_the_past_github_actions_and_a_button_to_retrigger_the_pipeline.png)
 
+<a id="Step_4"></a>
 
 ## Step 4: Applying software templates / golden path templates
 _Source manifest files for the tutorials can be found in this repository:
@@ -503,8 +534,7 @@ For this exercise, we will make use of the following software template:
 * For Operator-based installation: [Open Liberty software template](https://github.com/grace-maarten/platform-engineering-101/blob/main/artefacts/software-templates/liberty-template/template.yaml)
 * For Helm-based installation: [Helm Open Liberty software template](https://github.com/grace-maarten/platform-engineering-101/blob/main/artefacts/software-templates/liberty-template/template-helm.yaml)
 
-**!! In order to be able to initiate a software template, you'll need to make sure that 
-you have a personal access token from GitHub:**
+**!! In order to be able to initiate a software template, you'll need to make sure that you have a personal access token from GitHub:**
 1. Go to [GitHub profile settings](https://github.com/settings/profile).
 2. Got to Developer settings > Personal access tokens > Tokens (classic).
 3. Click 'Generate new token' > Generate new token (classic).
@@ -544,14 +574,17 @@ ArgoCD enabled. Take this image, go to its details in GitHub and make it public.
 
 Now go to the OpenShift console and create a new application with this docker image.
 
+<a id="Step_5"></a>
+
 ## Step 5: Custom (dynamic) plugins
 _Can be, that as admin, you need to:_
 * _Check user permissions to create image streams - if you use another namespace than e.g., user13._
   * _oc auth can-i create imagestreams -n user13-devspaces --as=user13_
   * _oc auth can-i create imagestreams -n user13-devspaces --as=user13_
 
+<a id="Step_5.1"></a>
 
-### Environment setup
+### 5.1: Environment setup
 First of all, execute the following commands to prepare the environment (e.g., yarn, npm configs, ...).  
 ```shell
 mkdir -p ~/.npm-global/lib
@@ -567,10 +600,12 @@ source ~/.bashrc
 ```shell
 npm install -g yarn
 ```
+<a id="Step_5.2"></a>
 
-### Plugin development
+### 5.2: Plugin development
 Now follow the instructions from [this training exercise](https://github.com/maarten-vandeperre/developer-hub-training-exercises/tree/main/custom-dynamic-plugins)
 
+<a id="Step_6"></a>
 
 ## Step 6: Customizing the Developer Hub instance
 Documentation pages:
@@ -603,6 +638,8 @@ app-config.yaml: |
 ``` 
 
 For image: images/jfokus_50x47.jpeg, encoded by https://www.base64-image.de/
+
+<a id="Step_7"></a>
 
 ## Step 7: Extra information
 * Example repository: https://github.com/maarten-vandeperre/developer-hub-documentation
