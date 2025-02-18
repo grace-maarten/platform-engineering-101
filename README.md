@@ -134,75 +134,89 @@ In order to get started with the GitHub integration, we will need some data/cred
 
 There are advantages of working with a GitHub organization: you can better isolate repositories, you can work together with multiple people without having to share credentials, ….
 
-a. Create a GitHub organization. (I opt for the "Free" one.)
+3.1.a. Create a GitHub organization. (I opt for the "Free" one.)
+
 ![](images/github-organization.png)
 ![](images/organization.png)
-b. Fill the form and hit "next"
+
+3.1.b. Fill the form and hit "next"
+
 ![](images/setup_your_organization.png)
-c. Click "Complete setup"
-d. Go to settings of the organization
+
+3.1.c. Click "Complete setup"
+3.1.d. Go to settings of the organization
+
 ![](images/settings_of_the_organization.png)
-e. Scroll down to "Developer Settings" > "GitHub Apps", not to "GitHub Apps" under Third-party access 
+
+3.1.e. Scroll down to "Developer Settings" > "GitHub Apps", not to "GitHub Apps" under Third-party access 
+
 ![](images/developer_settings_github_app.png)
-f. Create GitHub App:
+
+3.1.f. Create GitHub App:
 i. Name: for us "developer-hub-training-app"
 ii. Homepage URL, i have used https://developers.redhat.com/ (you can fill what you want):
 iii. Uncheck the "active" box for webhook
+
 ![](images/post_installation.png)
+
 iv. When creating a GitHub App, you must select permissions (i.e., repository and group permissions, but mainly repository permissions) to define the level of access for the app. The permissions required vary depending on your use of the integration:
 
-    Use case: Reading software components. Required permissions:
-        Contents: Read-only
-        Commit statuses: Read-only
-    Use case: Reading organization data. Required permissions:
-        Members: Read-only
-
-    Use case: Publishing software templates. Required permissions:
-
-    Take this one for the rest of this exercise.
-        Administration: Read & write (for creating repositories)
-        Contents: Read & write
-        Metadata: Read-only
-        Pull requests: Read & write
-        Issues: Read & write
-        Workflows: Read & write (if templates include GitHub workflows)
-        Variables: Read & write (if templates include GitHub Action Repository Variables)
-        Secrets: Read & write (if templates include GitHub Action Repository Secrets)
-        Environments: Read & write (if templates include GitHub Environments)
+* Use case: **Reading software components**. Required permissions:
+  * Contents: Read-only
+  * Commit statuses: Read-only
+* Use case: **Reading organization data**. Required permissions:
+  * Members: Read-only
+* Use case: **Publishing software templates**. Required permissions:
+  _Take this one for the rest of this exercise._
+  * Administration: Read & write (for creating repositories)
+  * Contents: Read & write
+  * Metadata: Read-only
+  * Pull requests: Read & write
+  * Issues: Read & write
+  * Workflows: Read & write (if templates include GitHub workflows)
+  * Variables: Read & write (if templates include GitHub Action Repository Variables)
+  * Secrets: Read & write (if templates include GitHub Action Repository Secrets)
+  * Environments: Read & write (if templates include GitHub Environments)
 
 v. Select "Only this account" for "Where can this GitHub App be installed"
+
 ![](images/github_app_be_installed.png)
+
 vi. Click "Create GitHub App".
 vii. Get your client and app ID and store it somewhere where you can access it later on.
+
 ![](images/create_github_app_id.png)
+
 viii. Generate a new client secret.
+
 ![](images/generate_a_new_client_secret.png)
+
 ix. Store the client secret somewhere where you can access it later on.
+
 ![](images/store_the_client_secret.png)
+
 x. Click "save changes"
 xi. Generate a private key. It will trigger the download of .pem file. Store it somewhere where you can access it later on.
-![](images/generate_a_private_ke.png)
-xii. Install the application
-![](images/install_the_application.png)
-xiii. Click "install"
-![](images/install_developer_hub.png)
 
+![](images/generate_a_private_ke.png)
+
+xii. Install the application
+
+![](images/install_the_application.png)
+
+xiii. Click "install"
+
+![](images/install_developer_hub.png)
 
 Next to the written tutorial, we've created a [dynamic video tutorial](https://app.arcade.software/share/yAz2okhKSeBNCRrqmQ39),
 which you can follow as well to obtain these parameters. (Whenever the video pauzes, you have to 
 click 'next' or 'arrow right' to continue).
 
-
-Starting from the second part of 
-[the exercise](https://developers.redhat.com/learning/learn:streamline-development-github-integration-and-software-templates-red-hat-developer-hub/resource/learn:streamline-development-github-integration-and-software-templates-red-hat-developer-hub:resource:prerequisites-and-step-step-guide), 
-focus on the following steps:   
-_(you can skip other configuration steps, as tasks like software template creation will be covered later in the workshop)_
-
 ### 3.2. Create a basic GitHub integration within Developer Hub** (i.e., repository creation and scanning)
 
 In order to create the GitHub integrations, we will start from the configuration that we ended up with in the previous section. 
 
-In case you don’t want to run them manually, you can execute the following commands to get in the right state (Please ensure you modify secrets_rdhd-secret.yaml file with your cluster config as mentioned in the previous exercise before running following command):
+In case you don’t want to run them manually, you can execute the following commands to get in the right state (Please ensure you modify **secrets_rdhd-secret.yaml** file with your cluster config as mentioned in the previous exercise before running following command):
 
 ```shell
 cd setting-up-developer-hub-through-the-operator/
@@ -211,218 +225,243 @@ sh cheat/run_all.sh
 
 The required manifests are available in the [https://github.com/maarten-vandeperre/developer-hub-training-exercises](Developer Hub training exercises repository on GitHub). For this exercise, all manifests are in the folder ‘github-integrations’, so check it out before going further.
 
-3.2.a. Log in with OpenShift
-As described in the last training exercise, you have the option to work with the UI (i.e., the OpenShift console) or with the command line interface (i.e., oc). Within this workshop I will opt for the command line interface, but if you’d like to work with the UI, feel free to check out the previous exercise. (In case you want to work with the UI, because you can’t install the oc command line tool, then you can check out OpenShift dev spaces as well. It will give you an IDE, accessible from the browser, running on OpenShift and already connected to the cluster).
+  3.2.a. Log in with OpenShift
+  As described in the last training exercise, you have the option to work with the UI (i.e., the OpenShift console) or with the command line interface (i.e., oc). Within this workshop I will opt for the command line interface, but if you’d like to work with the UI, feel free to check out the previous exercise. (In case you want to work with the UI, because you can’t install the oc command line tool, then you can check out OpenShift dev spaces as well. It will give you an IDE, accessible from the browser, running on OpenShift and already connected to the cluster).
 
-3.2.b. Add secrets and GitHub info into a secret
-Within GitHub, we already created an organization and a GitHub app within that organization. For that GitHub application, we got an application ID, a client ID, a client secret and a private key. This is all information that we will need to pass to our Developer Hub deployment. As it is not safe to put this directly in the application configuration, we will opt for storing it in a secret and linking the secret to the application configuration afterward. 
+  3.2.b. Add secrets and GitHub info into a secret
+  Within GitHub, we already created an organization and a GitHub app within that organization. For that GitHub application, we got an application ID, a client ID, a client secret and a private key. This is all information that we will need to pass to our Developer Hub deployment. As it is not safe to put this directly in the application configuration, we will opt for storing it in a secret and linking the secret to the application configuration afterward. 
 
-In order to get the private key, open the .pem file that was downloaded when you generated a private key:
-![](images/github_info_into_a_secret.png)
+  In order to get the private key, open the .pem file that was downloaded when you generated a private key:
 
-You can paste the entire block, with the start and the end line, in the secret file secrets_github-credentials.yaml.
+  ![](images/github_info_into_a_secret.png)
 
-You can create the secret by applying the following YAML definition.
+  You can paste the entire block, with the start and the end line, in the secret file secrets_github-credentials.yaml.
 
-!!! Important to note is that you will have to add your credentials to this YAML before applying it. Next to that, make sure that the private key value is aligned properly.
-![](images/private_key_value.png)
+  You can create the secret by applying the following YAML definition.
 
-```shell
-oc apply -f manifests/secrets_github-credentials.yaml
-```
+  **!!! Important to note is that you will have to add your credentials to this YAML before applying it. Next to that, make sure that the private key value is aligned properly.**
 
-Expected output:
-![](images/yaml_output.png)
+  ![](images/private_key_value.png)
 
-3.2.c. Create a dynamic plugins configuration
-Dynamic plugins in Red Hat Developer Hub enable developers to extend the platform's functionality without modifying the core application. They allow users to create and integrate custom features, tools, or workflows that dynamically load into the platform at runtime. This approach ensures flexibility, as plugins can be updated, added, or removed independently of the core Developer Hub, enabling organizations to tailor the developer experience to their specific needs while maintaining seamless scalability and modularity.
-In order to enable GitHub integration, we will need to add a dynamic plugin for these integration(s) too. This can be done by applying the following YAML definition.
-You can create the secret by applying the following YAML definition.
+  ```shell
+  oc apply -f manifests/secrets_github-credentials.yaml
+  ```
 
-```shell
-oc apply -f manifests/dynamic-plugins-v1.yaml
-```
+  Expected output:
 
-Expected output:
-![](images/dynamic_plugins_configuration_output.png)
+  ![](images/yaml_output.png)
 
-3.2.d. Create an application config configuration
-In Red Hat Developer Hub, the app-config.yaml file is the central configuration file that defines the behavior, integrations, and settings of the Developer Hub instance. It manages the platform’s core functionality and plugins by specifying:
+  3.2.c. Create a dynamic plugins configuration
+  Dynamic plugins in Red Hat Developer Hub enable developers to extend the platform's functionality without modifying the core application. They allow users to create and integrate custom features, tools, or workflows that dynamically load into the platform at runtime. This approach ensures flexibility, as plugins can be updated, added, or removed independently of the core Developer Hub, enabling organizations to tailor the developer experience to their specific needs while maintaining seamless scalability and modularity.
+  In order to enable GitHub integration, we will need to add a dynamic plugin for these integration(s) too. This can be done by applying the following YAML definition.
+  You can create the secret by applying the following YAML definition.
 
-    Backend Services and Integrations: Configures APIs, authentication mechanisms, and connections to external systems (e.g., GitHub, Kubernetes, CI/CD tools).
-    Plugins and Features: Enables or disables plugins and custom features within the hub.
-    Entity Providers: Defines sources for cataloging software entities, such as Git repositories or cloud platforms.
-    UI Customization: Allows basic customization of themes, navigation, and branding.
-    Runtime Behavior: Sets parameters for caching, logging, and other operational aspects.
+  ```shell
+  oc apply -f manifests/dynamic-plugins-v1.yaml
+  ```
 
-By centralizing configuration, the app-config.yaml file ensures consistency, making it easy to manage, extend, and adapt the Developer Hub to an organization’s evolving requirements.
+  Expected output:
 
-In order to enable GitHub integration, we will need to create an app-config file after adding the dynamic plugin for these integration(s). The dynamic plugin will enable the underlying dependency, the config within the app-conf file will configure this dependency. Adding the basic GitHub integration configuration can be done by applying the following YAML definition.
+  ![](images/dynamic_plugins_configuration_output.png)
 
-```shell
-oc apply -f manifests/app-config-v1.yaml
-```
+  3.2.d. Create an application config configuration
+  In Red Hat Developer Hub, the app-config.yaml file is the central configuration file that defines the behavior, integrations, and settings of the Developer Hub instance. It manages the platform’s core functionality and plugins by specifying:
 
-Expected output:
-![](images/application_config_configuration_out_put.png)
+  1. **Backend Services and Integrations**: Configures APIs, authentication mechanisms, and connections to external systems (e.g., GitHub, Kubernetes, CI/CD tools).
+  2. **Plugins and Features**: Enables or disables plugins and custom features within the hub.
+  3. **Entity Providers**: Defines sources for cataloging software entities, such as Git repositories or cloud platforms.
+  4. **UI Customization**: Allows basic customization of themes, navigation, and branding.
+  5. **Runtime Behavior**: Sets parameters for caching, logging, and other operational aspects.
 
-3.2.e. Add the dynamic plugins and the application configuration to the instance configuration
+  By centralizing configuration, the app-config.yaml file ensures consistency, making it easy to manage, extend, and adapt the Developer Hub to an organization’s evolving requirements.
 
-Now that we have the secrets configured, the dynamic plugins listed, and the application configuration configured, we just need to glue everything together within our Developer Hub instance configuration. This can be done by applying the following YAML definition.
+  In order to enable GitHub integration, we will need to create an app-config file after adding the dynamic plugin for these integration(s). The dynamic plugin will enable the underlying dependency, the config within the app-conf file will configure this dependency. Adding the basic GitHub integration configuration can be done by applying the following YAML definition.
 
-```shell
-oc apply -f manifests/instance-config-v1.yaml
-```
+  ```shell
+  oc apply -f manifests/app-config-v1.yaml
+  ```
 
-Expected output:
-![](images/dynamic_plugins_ouput.png)
+  Expected output:
 
-You can check the status of the newly created pod by running the following command (the newly created pod should get the status ‘Running’):
+  ![](images/application_config_configuration_out_put.png)
 
-``` shell
-oc get pods -n demo-project -o json | jq '.items[] | 
-select(.metadata.ownerReferences[0].name | 
-startswith("backstage-developer-hub-")) | {POD: .metadata.name, DEPLOYMENT: 
-.metadata.ownerReferences[0].name, Status: .status.phase, StartTime: 
-.status.startTime }'
-```
+  3.2.e. Add the dynamic plugins and the application configuration to the instance configuration
 
-Important note: this configuration should be the last step, or you will have to delete the instance and reinstall it through the YAML definition, as it will crash for secrets or configs not found.
-![](images/access_developer_hub.png)
+  Now that we have the secrets configured, the dynamic plugins listed, and the application configuration configured, we just need to glue everything together within our Developer Hub instance configuration. This can be done by applying the following YAML definition.
 
-Now we will wait until the pods restart and we will access Developer Hub. If you are not able to access Developer Hub in this stage, then something went wrong configuration wise. You can rely on the "how to debug" section of previous learning exercise to check what went wrong.
+  ```shell
+  oc apply -f manifests/instance-config-v1.yaml
+  ```
 
-For me, it started without errors, so let’s go to the next session and try the GitHub integrations. You should be able to see...
+  Expected output:
 
-```shell
-"class":"GithubEntityProvider$1","level":"info","message":"Read x GitHub repositories (x matching the pattern)"
-```
-![](images/github_integrations.png)
+  ![](images/dynamic_plugins_ouput.png)
 
-In case you’re facing "github-provider:providerId refresh failed, HttpError: API rate limit exceeded, you’re required to log in", check if the organization name is correct and that your secret values are mapped correctly. I faced the issue when I made a copy-paste error on the organization name in the app-config file.
+  You can check the status of the newly created pod by running the following command (the newly created pod should get the status ‘Running’):
+
+  ``` shell
+  oc get pods -n demo-project -o json | jq '.items[] | 
+  select(.metadata.ownerReferences[0].name | 
+  startswith("backstage-developer-hub-")) | {POD: .metadata.name, DEPLOYMENT: 
+  .metadata.ownerReferences[0].name, Status: .status.phase, StartTime: 
+  .status.startTime }'
+  ```
+
+  Important note: this configuration should be the last step, or you will have to delete the instance and reinstall it through the YAML definition, as it will crash for secrets or configs not found.
+  ![](images/access_developer_hub.png)
+
+  Now we will wait until the pods restart and we will access Developer Hub. If you are not able to access Developer Hub in this stage, then something went wrong configuration wise. You can rely on the "how to debug" section of previous learning exercise to check what went wrong.
+
+  For me, it started without errors, so let’s go to the next session and try the GitHub integrations. You should be able to see...
+
+  ```shell
+  "class":"GithubEntityProvider$1","level":"info","message":"Read x GitHub repositories (x matching the pattern)"
+  ```
+
+  ![](images/github_integrations.png)
+
+  In case you’re facing "github-provider:providerId refresh failed, HttpError: API rate limit exceeded, you’re required to log in", check if the organization name is correct and that your secret values are mapped correctly. I faced the issue when I made a copy-paste error on the organization name in the app-config file.
 
 ### 3.3 Enable GitHub authentication**
 
 Up until now, we worked with guest authentication, which is not something we will do in a production setting. There are quite a few supported user providers like OpenID compliant systems (e.g., Keycloak), GitLab, …. For this exercise, we will stick to GitHub authentication.
+
 In order to do so, you will need to:
 
-    Update your GitHub app configuration
+a. Update your GitHub app configuration
+  * Go to your organization’s GitHub Apps and click 'edit'.
+ 
+  ![](images/github_apps.png)
 
-        Go to your organization’s GitHub Apps and click 'edit'. 
-![](images/github_apps.png)
+  * Fill the callback URL field with:
 
-Fill the callback URL field with:
+  https://backstage-developer-hub-demo-project.apps.cluster-8wcdk.8wcdk.sandbox1893.opentlc.com/api/auth/github/handler/frame
 
-https://backstage-developer-hub-demo-project.apps.cluster-8wcdk.8wcdk.sandbox1893.opentlc.com/api/auth/github/handler/frame
+  !! **Be aware**: your base domain will be different from mine. It needs to be the base domain of your Developer Hub instance.
 
-!! Be aware: your base domain will be different from mine. It needs to be the base domain of your Developer Hub instance.
+  !! **Be aware (II)**: In case you change clusters, you will need to add an extra callback URL.
 
-!! Be aware (II): In case you change clusters, you will need to add an extra callback URL.
-![](images/developer_hub_0.png)
+  ![](images/developer_hub_0.png)
 
-    Click 'save changes'
+  * Click 'save changes'
 
-b. Add a new plugin to the dynamic plugins' configuration. It will be the GitHub org plugin, which is responsible for importing users and groups from GitHub into Developer Hub. You can add it to the dynamic plugins by applying the following YAML manifest: (changes are in between ‘added to enable github authentication’ blocks). (version is v3, to be aligned with the app-config files, v2 doesn’t exist for the dynamic plugins).
+b. Add a new plugin to the dynamic plugins' configuration. It will be the GitHub org plugin, which is responsible for importing users and groups from GitHub into Developer Hub. You can add it to the dynamic plugins by applying the following YAML manifest: (changes are in between ‘added to enable github authentication’ blocks). (_version is v3, to be aligned with the app-config files, v2 doesn’t exist for the dynamic plugins_).
 
 ```shell
 oc apply -f manifests/dynamic-plugins-v3.yaml
 ```
 
 Expected output:
+
 ![](images/github_org.png)
 
-c. Now that we have the new plugin enabled, we will need to add some configuration for it in the app-config file. You can do this by applying the following YAML manifest: (changes are in between ‘added to enable github authentication’ blocks)
+c. Now that we have the new plugin enabled, we will need to add some configuration for it in the app-config file. You can do this by applying the following YAML manifest: (_changes are in between ‘added to enable github authentication’ blocks_)
 
 ```shell
 oc apply -f manifests/app-config-v3.yaml
 ```
 
 Expected output:
+
 ![](images/yaml_manifest.png)
 
 We didn’t need to add anything regarding the GitHub integration part, as it is already configured for previous sections. What you need to do is:
 
-    Add GitHubOrg configuration in the providers section.
-    Add GitHub configuration in the auth providers section.
-    Set GitHub as a sign in page.
+* Add GitHubOrg configuration in the providers section.
+* Add GitHub configuration in the auth providers section.
+* Set GitHub as a sign in page.
 
 d. Wait for the pods to restart.
 
 e. Now, go to the home page of Developer Hub (or log out as guest) and select GitHub login.
+
 ![](images/github_login.png)
 
 f. Log in with your GitHub account. 
+
 ![](images/log_in_with_your_github_account.png)
 
 g. And you’ll see that you’re not the guest user anymore. 
+
 ![](images/guest_user.png)
 
-h. In case you want to disable the option to log in as a guest user, you can do this by applying the following YAML manifest: (changes are in between ‘added to disable guest authentication’ blocks or highlighted with ‘ #changed to enable github authentication’)
+h. In case you want to disable the option to log in as a guest user, you can do this by applying the following YAML manifest: (_changes are in between ‘added to disable guest authentication’ blocks or highlighted with ‘ #changed to enable github authentication’_)
 
 ```shell
 oc apply -f manifests/app-config-v4.yaml
 ```
 
 Expected output: 
+
 ![](images/guest_authentication.png)
 
 In order to hide the guest login, your environment need to be different from “development”.
 
 In case you would get an error mentioning "the redirect_uri is not associated with this application", then check the following: 
+
 ![](images/error_mentioning.png)
 
 
-Check the “baseUrl” field within your rhdh-secrets configuration. It should be similar to
+* Check the “baseUrl” field within your rhdh-secrets configuration. It should be similar to
 
-"https://backstage-developer-hub-demo-project.apps.cluster-5pq52.5pq52.sandbox502.opentlc.com/".
-Check if your domain (i.e., maybe you got a new cluster) is still listed in your GitHub app configuration:
+  "https://backstage-developer-hub-demo-project.apps.cluster-5pq52.5pq52.sandbox502.opentlc.com/".
+  Check if your domain (i.e., maybe you got a new cluster) is still listed in your GitHub app configuration:
 
-    Go to your organization settings.
-    Go to GitHub apps.
+  * Go to your organization settings.
+  * Go to GitHub apps.
+  * Click edit 
 
-    Click edit 
-![](images/github_apps_click_edit.png)
+  ![](images/github_apps_click_edit.png)
 
-Scroll down in general to the callbacks section and check / edit / add your current domain. 
-![](images/scroll_down_in_general_to_the_callbacks_section_and_check.png)
+  * Scroll down in general to the callbacks section and check / edit / add your current domain.
 
-Now scroll down to the save button and click "save changes".
+    ![](images/scroll_down_in_general_to_the_callbacks_section_and_check.png)
+
+  * Now scroll down to the save button and click "save changes".
 
 ## 3.4 Enable GitHub actions (optional)
 For now, we will work with public repositories. In case you would have initiated a private repository, you can make it public via repository > settings > general > advanced > change visibility > change to public. In case you are working with private repositories (for now), it can be that the CI tab is showing up, but that it doesn’t contain any workflows. 
+
 ![](images/enable_github_actions.png)
+
 ![](images/change_visibility_of_github_repository_0.png)
 
 The default CI infrastructure for GitHub is [https://docs.github.com/en/actions/writing-workflows/quickstart](GitHub Actions). We will embed it in our demo application and make it available within Developer Hub. In order to do so, you will need to:
 
-a. Extend the demo application (or application on which you want to test it, I will reuse the demo-import application from the previous section) with a github actions manifest. This file will be put in the git repository under .github > workflows > github-actions.yaml (you can choose the name of the file, not the directory structure). You can find an example in my commit. I’ve added a dummy github actions manifest in our repository as well, you can find it under github-integrations > files > .github > workflows > github-actions-demo.yaml. It doesn’t do anything more than metadata logging, but this is an exercise on enabling the GitHub actions view, not on GitHub actions themselves.
+a. Extend the demo application (or application on which you want to test it, I will reuse the demo-import application from the previous section) with a github actions manifest. This file will be put in the git repository under .github > workflows > github-actions.yaml (you can choose the name of the file, not the directory structure). You can find an [https://github.com/maarten-dev-hub-training-organization/import-demo/commit/3106aa0309b32419c283a460b4fd3b1bc2af6ad9](example in my commit). I’ve added a dummy github actions manifest in our repository as well, you can find it under github-integrations > files > .github > workflows > github-actions-demo.yaml. It doesn’t do anything more than metadata logging, but this is an exercise on enabling the GitHub actions view, not on GitHub actions themselves.
 
-b. Now we need to enable the GitHub actions plugin in Developer Hub. You can do this by applying the following YAML manifest: (changes are in between ‘added to enable github actions’)
+b. Now we need to enable the GitHub actions plugin in Developer Hub. You can do this by applying the following YAML manifest: (_changes are in between ‘added to enable github actions’_)
 
 ```shell
 oc apply -f manifests/dynamic-plugins-v5.yaml
 ```
 
 Expected output:
+
 ![](images/github_actions.png)
 
 c. If you check the details of the catalog component, you’ll notice that you don’t see any CI-tab at the moment.
+
 ![](images/red_hat_developer_hub_software_catalog_0.png)
+
 ![](images/imp_catalog.png)
 
 This is not a bug: In order to enable these tabs, you will need to add annotations to the catalog-info.yaml file of the corresponding project. These annotations can enable plugins (if they are installed and configured properly).
 
 d. We will now configure our project/repository to enable the CI-tab for GitHub Actions. In order to do so, you will need to add the ‘project-slug’ annotation as shown in github-integrations > files > catalog-info.yaml. The slug exists of the organization name and the project name, separated by a forward slash.
 
-!!! Important, change the organization name to yours! For me it is 'maarten-dev-hub-training-organization'
+**!!! Important, change the organization name to yours! For me it is 'maarten-dev-hub-training-organization'**
+
 ![](images/maarten-dev-hub-training-organization.png)
 
 e. Whenever you now add this or other changes, GitHub Actions will be run on your project. 
+
 ![](images/github_actions_will_be_run_on_your_project.png)
 
 f. In order to make this now available in Developer Hub, we don’t have anything to do besides refreshing the screen: GitHub integrations and provider is required, which we already configured so far, just like the GitHub authentication provider. Important to note is that you will need to have a GitHub authentication provider configured, but it doesn’t need to be the main authentication method. The authentication provider will kick in whenever you want to open the tab: if you’re not logged in yet, it will ask you to log in before you get to see the pipelines.
 
-g. When you refresh the screen, you should now be able to see the CI-tab with the past GitHub actions and a button to retrigger the pipeline. 
+g. When you refresh the screen, you should now be able to see the CI-tab with the past GitHub actions and a button to retrigger the pipeline.
+
 ![](images/ci-tab_with_the_past_github_actions_and_a_button_to_retrigger_the_pipeline.png)
 
 
