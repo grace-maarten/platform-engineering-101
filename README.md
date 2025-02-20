@@ -156,20 +156,20 @@ Now that you are in your Developer Sandbox account:
 * Start in the Developer viewpoint by selecting **</> Developer** in the upper left corner.
 * Select **Administrator** to change to the Administrator viewpoint. You will see a screen that shows your single allowed project on the Developer Sandbox.
 
-![](images/rhdh_lp_fig4.png)
+  ![](images/rhdh_lp_fig4.png)
 
 * Switch back to the **Developer** viewpoint to begin installing Developer Hub.
 * Select your project name to enter that project and go to the **Add** screen
 
-![](images/rhdh_lp_fig5.png)
+  ![](images/rhdh_lp_fig5.png)
 
 * Now it’s time to install the Developer Hub components using the Helm chart. Under Developer Catalog, select **Helm chart** and type **developer hub** into the search box
 
-![](images/rhdh_lp_fig6.png)
+  ![](images/rhdh_lp_fig6.png)
 
 * Click on the **Red Hat Developer Hub** Helm chart
 
-![](images/rhdh_lp_fig7.png)
+  ![](images/rhdh_lp_fig7.png)
 
 * Click **Create** to reach the Create Helm Release screen
 
