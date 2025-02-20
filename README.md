@@ -94,17 +94,17 @@ Note: When interacting with an OpenShift cluster, you can make use of the OpenSh
 
   * Install openshift cli:    
 
-```shell
-curl -o oc.tar https://downloads-openshift-console.apps.rm1.0a51.p1.openshiftapps.com/amd64/linux/oc.tar
-```
-```shell
-tar -xvf oc.tar
-```
-```shell
-alias oc="$(pwd)/oc"
-```
-_These commands can be executed from a terminal. In order to access a new terminal, click the hamburger icon in dev spaces,
-terminal > new terminal. When prompted, you can choose the workshop folder as root (i.e., platform-engineering-101)._  
+    ```shell
+    curl -o oc.tar https://downloads-openshift-console.apps.rm1.0a51.p1.openshiftapps.com/amd64/linux/oc.tar
+    ```
+    ```shell
+    tar -xvf oc.tar
+    ```
+    ```shell
+    alias oc="$(pwd)/oc"
+    ```
+    _These commands can be executed from a terminal. In order to access a new terminal, click the hamburger icon in dev spaces,
+    terminal > new terminal. When prompted, you can choose the workshop folder as root (i.e., platform-engineering-101)._  
 
 <a id="Step_1.2"></a>
 
