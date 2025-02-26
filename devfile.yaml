@@ -11,6 +11,7 @@ metadata:
   projectType: Node.js
   language: JavaScript
   version: 2.2.1
+
 starterProjects:
   - name: nodejs-starter
     git:
@@ -18,6 +19,7 @@ starterProjects:
         revision: main
       remotes:
         origin: 'https://github.com/nodeshift-starters/devfile-sample.git'
+
 components:
   - name: runtime
     container:
@@ -35,7 +37,28 @@ components:
         - exposure: none
           name: debug
           targetPort: 5858
+
 commands:
+  - id: install-oc
+    exec:
+      component: runtime
+      # You could also do this during container startup if you'd like it automated right away.
+      # In that case, add `runOn: containerCreation` under `exec`.
+      commandLine: >
+        sh -c '
+          echo "Downloading and installing oc CLI..." &&
+          curl -o oc.tar https://downloads-openshift-console.apps.rm1.0a51.p1.openshiftapps.com/amd64/linux/oc.tar &&
+          tar -xvf oc.tar &&
+          rm -f oc.tar &&
+          chmod +x oc &&
+          mv oc /usr/local/bin/oc &&
+          echo "oc CLI installed at /usr/local/bin/oc"
+        '
+      workingDir: /tmp
+      group:
+        kind: build
+        isDefault: false
+
   - id: install
     exec:
       component: runtime
@@ -44,6 +67,7 @@ commands:
       group:
         kind: build
         isDefault: true
+
   - id: run
     exec:
       component: runtime
@@ -52,6 +76,7 @@ commands:
       group:
         kind: run
         isDefault: true
+
   - id: debug
     exec:
       component: runtime
@@ -60,6 +85,7 @@ commands:
       group:
         kind: debug
         isDefault: true
+
   - id: test
     exec:
       component: runtime
