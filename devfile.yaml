@@ -51,7 +51,6 @@ commands:
           tar -xvf oc.tar &&
           rm -f oc.tar &&
           chmod +x oc &&
-          mv oc /usr/local/bin/oc &&
           echo "oc CLI installed at /usr/local/bin/oc"
         '
       workingDir: /tmp
