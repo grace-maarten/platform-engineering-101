@@ -30,8 +30,6 @@ components:
       env:
         - name: DEBUG_PORT
           value: '5858'
-        - name: PATH
-          value: "${HOME}/.local/bin:${PATH}"
       endpoints:
         - name: https-node
           targetPort: 3000
@@ -57,6 +55,7 @@ commands:
           chmod +x oc &&
           mv oc ${HOME}/.local/bin/oc &&
           echo "oc CLI installed at ${HOME}/.local/bin/oc" &&
+          PATH="${HOME}/.local/bin:${PATH}" &&
           oc version || echo "oc installed, but \"oc version\" might fail if not connected."
         '
       workingDir: /tmp
