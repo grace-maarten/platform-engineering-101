@@ -127,15 +127,15 @@ you've chosen (e.g., existing OpenShift instance, demo environment or developer 
 <a id="Step_2.1"></a>
 
 ### 2.1: Install Red Hat Developer Hub in your Developer Sandbox through Helm Charts
-_You can't choose the namespace within the sandbox: It will be something like
+>You can't choose the namespace within the sandbox: It will be something like
 'username + -dev'. Know that you will have to pay attention to the configurations 
 later on in this workshop: you'll need to check that the namespace is correct as
-most of the manifest are based upon the 'demo-project' namespace._
+most of the manifest are based upon the 'demo-project' namespace.
 
-_We will be using 'developer-hub' as the name of the instance. Feel free to change it
+>We will be using 'developer-hub' as the name of the instance. Feel free to change it
 to what you like, but know that you will have to pay attention to the configurations
 later on in this workshop: you'll need to check that the name is correct if you
-didn't go along with 'developer-hub'._
+didn't go along with 'developer-hub'.
 
 
 As mentioned, at the time of publishing, when installing Developer Hub via the Developer Sandbox for Red Hat OpenShift, you need to use a Helm chart. In future releases, this process will be changed to use a dedicated Operator, which will make setting up and configuring the system easier. 
