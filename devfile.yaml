@@ -94,6 +94,6 @@ commands:
       group:
         kind: test
         isDefault: true
-events:
-  postStart:
-    - install-oc
+#events:
+#  postStart:
+#    - install-oc
