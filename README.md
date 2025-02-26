@@ -122,7 +122,7 @@ you've chosen (e.g., existing OpenShift instance, demo environment or developer 
 * If you already have an OpenShift cluster, you can use the Red Hat Developer Hub Operator as the **Operator Framework is enabled**, so the operator-based installation would be recommended.
 * If your OpenShift cluster does **not** have the **Operator Framework enabled**, **or** if you **require more fine-grained control**, the Helm-based installation is the better option.
 
-Because we are using the Openshift developer sandbox in this workshop, which does not have the operator framework enabled, we will be using the Helm-based installation.
+> Because we are using the Openshift developer sandbox in this workshop, which does not have the operator framework enabled, we will be using the Helm-based installation.
 
 <a id="Step_2.1"></a>
 
