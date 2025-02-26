@@ -10,7 +10,7 @@ metadata:
     - ubi8
   projectType: Node.js
   language: JavaScript
-  version: 0.0.1
+  version: 0.0.2
 
 starterProjects:
   - name: nodejs-starter
@@ -51,6 +51,7 @@ commands:
           tar -xvf oc.tar &&
           rm -f oc.tar &&
           chmod +x oc &&
+          mv oc /usr/local/bin/oc &&
           echo "oc CLI installed at /usr/local/bin/oc"
         '
       workingDir: /tmp
@@ -93,3 +94,6 @@ commands:
       group:
         kind: test
         isDefault: true
+events:
+  postStart:
+    - install-oc
