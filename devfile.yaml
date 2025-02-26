@@ -57,7 +57,7 @@ commands:
           chmod +x oc &&
           mv oc ${HOME}/.local/bin/oc &&
           echo "oc CLI installed at ${HOME}/.local/bin/oc" &&
-          oc version || echo "oc installed, but 'oc version' might fail if not connected."
+          oc version || echo "oc installed, but \"oc version\" might fail if not connected."
         '
       workingDir: /tmp
       group:
