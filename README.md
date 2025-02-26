@@ -192,7 +192,7 @@ _Info alert: Note: If you see a screen prompting you to log in as Guest or via G
 
 Because you haven’t set up authentication yet, what you see is the guest viewpoint. By default, Developer Hub and Backstage allow a guest user, which the system defaults to in the absence of an authentication method being added. This is why we need to set up GitHub authentication, which is our next step.
 
-> **!!! When you use the Helm based installation, be aware that the pods don't automatically restart when applying changes. Make sure to kill the Developer Hub when applying new configurations (e.g., dynamic plugins, app config, ...). The reason for this is that the Helm chart does not monitor secrets or configmaps for changes, only what is done through a Helm upgrade. If you want to avoid to delete pods to get updates pushed through, you can use the following command:**
+> **:warning: When you use the Helm based installation, be aware that the pods don't automatically restart when applying changes. Make sure to kill the Developer Hub when applying new configurations (e.g., dynamic plugins, app config, ...). The reason for this is that the Helm chart does not monitor secrets or configmaps for changes, only what is done through a Helm upgrade. If you want to avoid to delete pods to get updates pushed through, you can use the following command:**
 > ```shell
 > oc rollout restart deployment/redhat-developer-hub
 > ```
