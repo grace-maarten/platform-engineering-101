@@ -1,6 +1,6 @@
 # Platform engineering 101
 
-Welcome to this workshop on getting started with Platform Engineering with Red Hat Developer Hub. In this workshop, we'll guide you through how to set up Red Hat Developer Hub on OpenShift through the free sandbox environment as your Internal Developer Portal, and then how you can start creating and using software templates in this portal to enable your own Internal Developer Platform (IDP). 
+Welcome to this workshop on getting started with Platform Engineering with Red Hat Developer Hub (i.e., an open source downstream project of Backstage). In this workshop, we'll guide you through how to set up Red Hat Developer Hub on OpenShift through the free sandbox environment as your Internal Developer Portal, and then how you can start creating and using software templates in this portal to enable your own Internal Developer Platform (IDP). 
 
 If you're unsure of any of these terms, please take a look at the [accompanying slides](slides/WorkshopPlatformEngineering101.pdf) in this GitHub repository - this provides an overview of the theory behind this workshop and intros the key technologies used.
 
@@ -8,7 +8,7 @@ If you're unsure of any of these terms, please take a look at the [accompanying 
 This workshop is split into 4 key sections with multiple sub-parts to each. Please refer to the following outline for an idea of what's involved in this workshop:
 
 * **[Step 1: OpenShift enablement](#Step_1)**
-  * [1.1 Set up your Developer Sandbox on Openshift](#Step_1.1)
+  * [1.1 Set up your Developer Sandbox on Red Hat Developers](#Step_1.1)
   * [1.2 Clone excerise manifest files for this workshop](#Step_1.1)
 * **[Step 2: Install Red Hat Developer Hub on OpenShift](#Step_2)**
   * [2.1: Install Red Hat Developer Hub in your Developer Sandbox through Helm Charts](#Step_2.1)
@@ -41,6 +41,7 @@ will serve as our internal developer platform. There are two ways to obtain an
 OpenShift cluster:
 * From the [Red Hat Developers website](https://developers.redhat.com), 
     which offers tutorials, free e-books, and access to a free OpenShift sandbox.
+    => We will opt for this option during this tutorial
 * From a demo environment provided for you.
 
 <a id="Step_1.1"></a>
@@ -85,8 +86,12 @@ In order to get the OpenShift cluster, you will need to execute the following st
   * The OpenShift sandbox.
   * OpenShift dev spaces (an IDE running on OpenShift/Kubernetes), which is accessible through the browser.
   * The OpenShift AI sandbox.
-* Click **Launch** for Red Hat OpenShift.
-* Click Log in with **dev sandbox**. (Use this GitHub repo as workspace Git repo URL: https://github.com/grace-maarten/platform-engineering-101.git).
+* Now open launch two components that we will use during this workshop:
+  * Click **Launch** for Red Hat OpenShift.
+  * Click Log in with **dev spaces**. Use this GitHub repo as workspace Git repo URL: 
+    ```text
+    https://github.com/grace-maarten/platform-engineering-101.git
+    ```
 
 Note: When interacting with an OpenShift cluster, you can make use of the OpenShift CLI. Command line tools can be found by logging in to an OpenShift cluster, clicking the question mark button in the top right corner and selecting the tool you want to download. In case you don't want to configure your local machine, you can make use of Red Hat Dev Spaces.
 
