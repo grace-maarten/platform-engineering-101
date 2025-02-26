@@ -93,23 +93,7 @@ In order to get the OpenShift cluster, you will need to execute the following st
     https://github.com/grace-maarten/platform-engineering-101.git
     ```
 
-Note: When interacting with an OpenShift cluster, you can make use of the OpenShift CLI. Command line tools can be found by logging in to an OpenShift cluster, clicking the question mark button in the top right corner and selecting the tool you want to download. In case you don't want to configure your local machine, you can make use of Red Hat Dev Spaces.
-
-* Whenever you want to use the [dev spaces](https://developers.redhat.com/products/openshift-dev-spaces/overview) with the default devfile (i.e., not the universal one), make sure to enable the oc command: 
-
-  * Install openshift cli:    
-
-    ```shell
-    curl -o oc.tar https://downloads-openshift-console.apps.rm1.0a51.p1.openshiftapps.com/amd64/linux/oc.tar
-    ```
-    ```shell
-    tar -xvf oc.tar
-    ```
-    ```shell
-    alias oc="$(pwd)/oc"
-    ```
-    _These commands can be executed from a terminal. In order to access a new terminal, click the hamburger icon in dev spaces,
-    terminal > new terminal. When prompted, you can choose the workshop folder as root (i.e., platform-engineering-101)._  
+> Note: When interacting with an OpenShift cluster, you can make use of the OpenShift CLI. Command line tools can be found by logging in to an OpenShift cluster, clicking the question mark button in the top right corner and selecting the tool you want to download. In case you don't want to configure your local machine, you can make use of Red Hat Dev Spaces. The advantage of using dev spaces (i.e., an IDE running on Kubernetes/OpenShift and accessible through the browser) is that you can configure environments that suit different use cases. E.g., for this tutorial, we've prepared a dev file (i.e., in the root of the project) that provides an installation of node and the OpenShift CLI (i.e., oc).
 
 <a id="Step_1.2"></a>
 
