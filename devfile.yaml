@@ -10,7 +10,7 @@ metadata:
     - ubi8
   projectType: Node.js
   language: JavaScript
-  version: 0.0.2
+  version: 0.0.3
 
 starterProjects:
   - name: nodejs-starter
