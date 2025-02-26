@@ -305,22 +305,17 @@ xiii. Click **Install**
 
 ### 3.2: Create a basic GitHub integration within Developer Hub (i.e., repository creation and scanning)
 
-In order to create the GitHub integrations, we will start from the configuration that we ended up with in the previous section. 
-
-In case you don’t want to run them manually, you can execute the following commands to get in the right state (Please ensure you modify **secrets_rdhd-secret.yaml** file with your cluster config as mentioned in the previous exercise before running following command):
-
-```shell
-cd setting-up-developer-hub-through-the-operator/
-sh cheat/run_all.sh
-```
-
 The required manifests are available in the [Developer Hub training exercises repository on GitHub](https://github.com/maarten-vandeperre/developer-hub-training-exercises). For this exercise, all manifests are in the folder ‘github-integrations’, so check it out before going further.
 
   3.2.a. **Log in** with OpenShift
 
-  As described in the last training exercise, you have the option to work with the UI (i.e., the OpenShift console) or with the command line interface (i.e., oc). Within this workshop I will opt for the command line interface, but if you’d like to work with the UI, feel free to check out the previous exercise. (In case you want to work with the UI, because you can’t install the oc command line tool, then you can check out OpenShift dev spaces as well. It will give you an IDE, accessible from the browser, running on OpenShift and already connected to the cluster).
+  As described before, you have the option to work with the UI (i.e., the OpenShift console) or with the command line interface (i.e., oc). Within this workshop I will opt for the command line interface, but if you’d like to work with the UI, feel free to check out the previous exercise
+  on the [Developer Hub training exercises repository on GitHub](https://github.com/maarten-vandeperre/developer-hub-training-exercises). (In case you want to work with the UI, because you can’t install the oc command line tool, then you can check out OpenShift dev spaces as well. It will give you an IDE, accessible from the browser, running on OpenShift and already connected to the cluster).
 
   3.2.b. **Add secrets** and GitHub info into a secret
+
+>This step only applies when you are persuing this workshop together with us. When this is not the case, feel free to reach out or just follow the steps in the section
+[3.1: Get the credentials for a GitHub application within a GitHub organization](#Step_3.1)
 
   Within GitHub, we already created an organization and a GitHub app within that organization. For that GitHub application, we got an application ID, a client ID, a client secret and a private key. This is all information that we will need to pass to our Developer Hub deployment. As it is not safe to put this directly in the application configuration, we will opt for storing it in a secret and linking the secret to the application configuration afterward. 
 
