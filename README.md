@@ -162,13 +162,13 @@ Now that you are in your Developer Sandbox account:
 
 * Click **Create** to reach the Create Helm Release screen
 
-For the sake of initial simplicity, you will install Developer Hub with all of the defaults, then add additional features (including GitHub authorization) after installation. The advantage of installing Developer Hub onto OpenShift is that we can change the configuration parameters via injected Secrets after we have a running version. Doing this restarts the pods with the new configuration injected as components using appropriately named Secrets, which simplifies customizing and configuring Developer Hub.
+>For the sake of initial simplicity, you will install Developer Hub with all of the defaults, then add additional features (including GitHub authorization) after installation. The advantage of installing Developer Hub onto OpenShift is that we can change the configuration parameters via injected Secrets after we have a running version. Doing this restarts the pods with the new configuration injected as components using appropriately named Secrets, which simplifies customizing and configuring Developer Hub.
 
 When we have an Operator, installation will be even simpler, with configuration options injected directly as components in the Custom Resource.
 
 ![](images/dev_hub_lp_fig_8b.png)
 
-* Navigate to **Root Schema -> global**. Then under **Enable service authentication within Backstage instance**, enter the required shorthand in the format `apps.{your_sandbox_url}.openshiftapps.com` (see the URL bar at the top of the image above to see where to find this information in your Developer Sandbox URL).
+* :warning: Navigate to **Root Schema -> global**. Then under **Enable service authentication within Backstage instance**, enter the required shorthand in the format `apps.{your_sandbox_url}.openshiftapps.com` (see the URL bar at the top of the image above to see where to find this information in your Developer Sandbox URL).
 
 * Click **Create**.
 
