@@ -88,7 +88,7 @@ In order to get the OpenShift cluster, you will need to execute the following st
   * The OpenShift AI sandbox.
 * Now open launch two components that we will use during this workshop:
   * Click **Launch** for Red Hat OpenShift.
-  * Click Log in with **dev spaces**. Use this GitHub repo as workspace Git repo URL: 
+  * Click Log in with **dev spaces**. Use this GitHub repo as the workspace Git repo URL: 
     ```text
     https://github.com/grace-maarten/platform-engineering-101.git
     ```
