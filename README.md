@@ -1,6 +1,6 @@
 # Platform engineering 101
 
-Welcome to this workshop on getting started with Platform Engineering with Red Hat Developer Hub. In this workshop, we'll guide you through how to set up Red Hat Developer Hub on OpenShift through the free sandbox environment as your Internal Developer Portal, and then how you can start creating and using software templates in this portal to enable your own Internal Developer Platform (IDP). 
+Welcome to this workshop on getting started with Platform Engineering with Red Hat Developer Hub (i.e., an open source downstream project of Backstage). In this workshop, we'll guide you through how to set up Red Hat Developer Hub on OpenShift through the free sandbox environment as your Internal Developer Portal, and then how you can start creating and using software templates in this portal to enable your own Internal Developer Platform (IDP). 
 
 If you're unsure of any of these terms, please take a look at the [accompanying slides](slides/WorkshopPlatformEngineering101.pdf) in this GitHub repository - this provides an overview of the theory behind this workshop and intros the key technologies used.
 
@@ -8,7 +8,7 @@ If you're unsure of any of these terms, please take a look at the [accompanying 
 This workshop is split into 4 key sections with multiple sub-parts to each. Please refer to the following outline for an idea of what's involved in this workshop:
 
 * **[Step 1: OpenShift enablement](#Step_1)**
-  * [1.1 Set up your Developer Sandbox on Openshift](#Step_1.1)
+  * [1.1 Set up your Developer Sandbox on Red Hat Developer Hub](#Step_1.1)
   * [1.2 Clone excerise manifest files for this workshop](#Step_1.1)
 * **[Step 2: Install Red Hat Developer Hub on OpenShift](#Step_2)**
   * [2.1: Install Red Hat Developer Hub in your Developer Sandbox through Helm Charts](#Step_2.1)
@@ -41,6 +41,7 @@ will serve as our internal developer platform. There are two ways to obtain an
 OpenShift cluster:
 * From the [Red Hat Developers website](https://developers.redhat.com), 
     which offers tutorials, free e-books, and access to a free OpenShift sandbox.
+    => We will opt for this option during this tutorial
 * From a demo environment provided for you.
 
 <a id="Step_1.1"></a>
@@ -85,26 +86,14 @@ In order to get the OpenShift cluster, you will need to execute the following st
   * The OpenShift sandbox.
   * OpenShift dev spaces (an IDE running on OpenShift/Kubernetes), which is accessible through the browser.
   * The OpenShift AI sandbox.
-* Click **Launch** for Red Hat OpenShift.
-* Click Log in with **dev sandbox**. (Use this GitHub repo as workspace Git repo URL: https://github.com/grace-maarten/platform-engineering-101.git).
-
-Note: When interacting with an OpenShift cluster, you can make use of the OpenShift CLI. Command line tools can be found by logging in to an OpenShift cluster, clicking the question mark button in the top right corner and selecting the tool you want to download. In case you don't want to configure your local machine, you can make use of Red Hat Dev Spaces.
-
-* Whenever you want to use the [dev spaces](https://developers.redhat.com/products/openshift-dev-spaces/overview) with the default devfile (i.e., not the universal one), make sure to enable the oc command: 
-
-  * Install openshift cli:    
-
-    ```shell
-    curl -o oc.tar https://downloads-openshift-console.apps.rm1.0a51.p1.openshiftapps.com/amd64/linux/oc.tar
+* Now open launch two components that we will use during this workshop:
+  * Click **Launch** for Red Hat OpenShift.
+  * Click Log in with **dev spaces**. Use this GitHub repo as the workspace Git repo URL: 
+    ```text
+    https://github.com/grace-maarten/platform-engineering-101.git
     ```
-    ```shell
-    tar -xvf oc.tar
-    ```
-    ```shell
-    alias oc="$(pwd)/oc"
-    ```
-    _These commands can be executed from a terminal. In order to access a new terminal, click the hamburger icon in dev spaces,
-    terminal > new terminal. When prompted, you can choose the workshop folder as root (i.e., platform-engineering-101)._  
+
+> Note: When interacting with an OpenShift cluster, you can make use of the OpenShift CLI. Command line tools can be found by logging in to an OpenShift cluster, clicking the question mark button in the top right corner and selecting the tool you want to download. In case you don't want to configure your local machine, you can make use of Red Hat Dev Spaces. The advantage of using dev spaces (i.e., an IDE running on Kubernetes/OpenShift and accessible through the browser) is that you can configure environments that suit different use cases. E.g., for this tutorial, we've prepared a dev file (i.e., in the root of the project) that provides an installation of node and the OpenShift CLI (i.e., oc).
 
 <a id="Step_1.2"></a>
 
@@ -133,20 +122,20 @@ you've chosen (e.g., existing OpenShift instance, demo environment or developer 
 * If you already have an OpenShift cluster, you can use the Red Hat Developer Hub Operator as the **Operator Framework is enabled**, so the operator-based installation would be recommended.
 * If your OpenShift cluster does **not** have the **Operator Framework enabled**, **or** if you **require more fine-grained control**, the Helm-based installation is the better option.
 
-Because we are using the Openshift developer sandbox in this workshop, which does not have the operator framework enabled, we will be using the Helm-based installation.
+> Because we are using the Openshift developer sandbox in this workshop, which does not have the operator framework enabled, we will be using the Helm-based installation.
 
 <a id="Step_2.1"></a>
 
 ### 2.1: Install Red Hat Developer Hub in your Developer Sandbox through Helm Charts
-_You can't choose the namespace within the sandbox: It will be something like
+>You can't choose the namespace within the sandbox: It will be something like
 'username + -dev'. Know that you will have to pay attention to the configurations 
 later on in this workshop: you'll need to check that the namespace is correct as
-most of the manifest are based upon the 'demo-project' namespace._
+most of the manifest are based upon the 'demo-project' namespace.
 
-_We will be using 'developer-hub' as the name of the instance. Feel free to change it
+>We will be using 'developer-hub' as the name of the instance. Feel free to change it
 to what you like, but know that you will have to pay attention to the configurations
 later on in this workshop: you'll need to check that the name is correct if you
-didn't go along with 'developer-hub'._
+didn't go along with 'developer-hub'.
 
 
 As mentioned, at the time of publishing, when installing Developer Hub via the Developer Sandbox for Red Hat OpenShift, you need to use a Helm chart. In future releases, this process will be changed to use a dedicated Operator, which will make setting up and configuring the system easier. 
@@ -173,13 +162,13 @@ Now that you are in your Developer Sandbox account:
 
 * Click **Create** to reach the Create Helm Release screen
 
-For the sake of initial simplicity, you will install Developer Hub with all of the defaults, then add additional features (including GitHub authorization) after installation. The advantage of installing Developer Hub onto OpenShift is that we can change the configuration parameters via injected Secrets after we have a running version. Doing this restarts the pods with the new configuration injected as components using appropriately named Secrets, which simplifies customizing and configuring Developer Hub.
+>For the sake of initial simplicity, you will install Developer Hub with all of the defaults, then add additional features (including GitHub authorization) after installation. The advantage of installing Developer Hub onto OpenShift is that we can change the configuration parameters via injected Secrets after we have a running version. Doing this restarts the pods with the new configuration injected as components using appropriately named Secrets, which simplifies customizing and configuring Developer Hub.
 
 When we have an Operator, installation will be even simpler, with configuration options injected directly as components in the Custom Resource.
 
 ![](images/dev_hub_lp_fig_8b.png)
 
-* Navigate to **Root Schema -> global**. Then under **Enable service authentication within Backstage instance**, enter the required shorthand in the format `apps.{your_sandbox_url}.openshiftapps.com` (see the URL bar at the top of the image above to see where to find this information in your Developer Sandbox URL).
+* :warning: Navigate to **Root Schema -> global**. Then under **Enable service authentication within Backstage instance**, enter the required shorthand in the format `apps.{your_sandbox_url}.openshiftapps.com` (see the URL bar at the top of the image above to see where to find this information in your Developer Sandbox URL).
 
 * Click **Create**.
 
@@ -203,7 +192,7 @@ _Info alert: Note: If you see a screen prompting you to log in as Guest or via G
 
 Because you haven’t set up authentication yet, what you see is the guest viewpoint. By default, Developer Hub and Backstage allow a guest user, which the system defaults to in the absence of an authentication method being added. This is why we need to set up GitHub authentication, which is our next step.
 
-> **!!! When you use the Helm based installation, be aware that the pods don't automatically restart when applying changes. Make sure to kill the Developer Hub when applying new configurations (e.g., dynamic plugins, app config, ...). The reason for this is that the Helm chart does not monitor secrets or configmaps for changes, only what is done through a Helm upgrade. If you want to avoid to delete pods to get updates pushed through, you can use the following command:**
+> **:warning: When you use the Helm based installation, be aware that the pods don't automatically restart when applying changes. Make sure to kill the Developer Hub when applying new configurations (e.g., dynamic plugins, app config, ...). The reason for this is that the Helm chart does not monitor secrets or configmaps for changes, only what is done through a Helm upgrade. If you want to avoid to delete pods to get updates pushed through, you can use the following command:**
 > ```shell
 > oc rollout restart deployment/redhat-developer-hub
 > ```
@@ -316,22 +305,17 @@ xiii. Click **Install**
 
 ### 3.2: Create a basic GitHub integration within Developer Hub (i.e., repository creation and scanning)
 
-In order to create the GitHub integrations, we will start from the configuration that we ended up with in the previous section. 
-
-In case you don’t want to run them manually, you can execute the following commands to get in the right state (Please ensure you modify **secrets_rdhd-secret.yaml** file with your cluster config as mentioned in the previous exercise before running following command):
-
-```shell
-cd setting-up-developer-hub-through-the-operator/
-sh cheat/run_all.sh
-```
-
 The required manifests are available in the [Developer Hub training exercises repository on GitHub](https://github.com/maarten-vandeperre/developer-hub-training-exercises). For this exercise, all manifests are in the folder ‘github-integrations’, so check it out before going further.
 
   3.2.a. **Log in** with OpenShift
 
-  As described in the last training exercise, you have the option to work with the UI (i.e., the OpenShift console) or with the command line interface (i.e., oc). Within this workshop I will opt for the command line interface, but if you’d like to work with the UI, feel free to check out the previous exercise. (In case you want to work with the UI, because you can’t install the oc command line tool, then you can check out OpenShift dev spaces as well. It will give you an IDE, accessible from the browser, running on OpenShift and already connected to the cluster).
+  As described before, you have the option to work with the UI (i.e., the OpenShift console) or with the command line interface (i.e., oc). Within this workshop I will opt for the command line interface, but if you’d like to work with the UI, feel free to check out the previous exercise
+  on the [Developer Hub training exercises repository on GitHub](https://github.com/maarten-vandeperre/developer-hub-training-exercises). (In case you want to work with the UI, because you can’t install the oc command line tool, then you can check out OpenShift dev spaces as well. It will give you an IDE, accessible from the browser, running on OpenShift and already connected to the cluster).
 
   3.2.b. **Add secrets** and GitHub info into a secret
+
+>This step only applies when you are persuing this workshop together with us. When this is not the case, feel free to reach out or just follow the steps in the section
+[3.1: Get the credentials for a GitHub application within a GitHub organization](#Step_3.1)
 
   Within GitHub, we already created an organization and a GitHub app within that organization. For that GitHub application, we got an application ID, a client ID, a client secret and a private key. This is all information that we will need to pass to our Developer Hub deployment. As it is not safe to put this directly in the application configuration, we will opt for storing it in a secret and linking the secret to the application configuration afterward. 
 
