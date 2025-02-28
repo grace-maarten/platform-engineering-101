@@ -8,7 +8,7 @@ If you're unsure of any of these terms, please take a look at the [accompanying 
 This workshop is split into 4 key sections with multiple sub-parts to each. Please refer to the following outline for an idea of what's involved in this workshop:
 
 * **[Step 1: OpenShift enablement](#Step_1)**
-  * [1.1 Set up your Developer Sandbox on Red Hat Developers](#Step_1.1)
+  * [1.1 Set up your Developer Sandbox on Red Hat Developer Hub](#Step_1.1)
   * [1.2 Clone excerise manifest files for this workshop](#Step_1.1)
 * **[Step 2: Install Red Hat Developer Hub on OpenShift](#Step_2)**
   * [2.1: Install Red Hat Developer Hub in your Developer Sandbox through Helm Charts](#Step_2.1)
